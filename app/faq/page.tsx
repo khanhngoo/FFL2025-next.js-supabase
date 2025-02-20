@@ -12,7 +12,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       <main className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-[#21272a] mb-12">FUTURE FOUNDERS LAUNCHPAD 2025 FAQ</h1>
+        <h1 className="text-center text-4xl font-bold text-[#21272a] mb-12">FUTURE FOUNDERS LAUNCHPAD 2025 FAQ</h1>
 
         <div className="max-w-4xl mx-auto mb-20">
           {faqItems.map((item, index) => (
