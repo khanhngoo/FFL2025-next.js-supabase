@@ -12,11 +12,14 @@ export default function CheckoutPage() {
   const handleCheckout = async () => {
     try {
       setIsLoading(true)
+      const applicationId = localStorage.getItem('applicationId')
+
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ applicationId })
       })
 
       const { sessionId } = await response.json()

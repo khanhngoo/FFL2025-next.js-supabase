@@ -6,9 +6,84 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
 import { useState } from "react"
+import { supabase } from "@/lib/supabase"
 
 export default function RegistrationForm() {
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(1) // Manage the current step
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    sex: '',
+    email: '',
+    date_of_birth: '',
+    citizenship: '',
+    school: '',
+    grade: '',
+    referral_source: '',
+    activities: '',
+    video_url: '',
+    cv_url: 'hi',
+    payment_status: 'pending',
+    application_status: 'submitted'
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleContinue = () => {
+    setStep(2) // Move to the next step
+    console.log("Current step:", step) // Log the current step
+  }
+
+
+  const handleSubmit = async () => {
+    if (isSubmitting) return
+    setIsSubmitting(true)
+    
+    try {
+      const { data, error } = await supabase
+        .from('applications')
+        .insert([
+          {
+            first_name: formData.first_name,
+            last_name: formData.last_name,
+            sex: formData.sex,
+            email: formData.email,
+            date_of_birth: formData.date_of_birth,
+            citizenship: formData.citizenship,
+            school: formData.school,
+            grade: formData.grade,
+            referral_source: formData.referral_source,
+            activities: formData.activities,
+            video_url: formData.video_url,
+            cv_url: formData.cv_url,
+            payment_status: 'pending',
+            application_status: 'submitted'
+          }
+        ])
+        .select()
+
+      if (error) {
+        console.error('Error:', error)
+        return
+      }
+
+      console.log('Success:', data)
+      // Handle successful submission (e.g., redirect to success page)
+    } catch (error) {
+      console.error('Error:', error)
+      // Handle error (e.g., show error message to user)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -53,7 +128,7 @@ export default function RegistrationForm() {
           <h1 className="text-4xl font-bold text-center text-[#21272a] mb-12">REGISTRATION FORM</h1>
 
           {step === 1 && (
-            <form className="space-y-8">
+            <div className="space-y-8">
               <p className="text-[#61646b]">
                 Please enter your full legal name as it appears on your government ID/Passport.
               </p>
@@ -63,19 +138,31 @@ export default function RegistrationForm() {
                   <label className="text-sm text-[#61646b]">
                     First Name <span className="text-red-500">*</span>
                   </label>
-                  <Input placeholder="Your first name" className="border-[#d9d9d9]" required />
+                  <Input 
+                    name="first_name"
+                    value={formData.first_name}
+                    onChange={handleInputChange}
+                    placeholder="Your first name"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
                     Last or Family name <span className="text-red-500">*</span>
                   </label>
-                  <Input placeholder="Your last or family name" className="border-[#d9d9d9]" required />
+                  <Input 
+                    name="last_name"
+                    value={formData.last_name}
+                    onChange={handleInputChange}
+                    placeholder="Your last or family name"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
                     Sex <span className="text-red-500">*</span>
                   </label>
-                  <Select>
+                  <Select onValueChange={(value) => handleSelectChange('sex', value)} value={formData.sex}>
                     <SelectTrigger className="border-[#d9d9d9]">
                       <SelectValue placeholder="Choose one" />
                     </SelectTrigger>
@@ -93,19 +180,36 @@ export default function RegistrationForm() {
                   <label className="text-sm text-[#61646b]">
                     Email address <span className="text-red-500">*</span>
                   </label>
-                  <Input type="email" placeholder="example@email.com" className="border-[#d9d9d9]" required />
+                  <Input 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    type="email"
+                    placeholder="example@email.com"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
                     Confirm email address <span className="text-red-500">*</span>
                   </label>
-                  <Input type="email" placeholder="example@email.com" className="border-[#d9d9d9]" required />
+                  <Input 
+                    type="email"
+                    placeholder="example@email.com"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
                     Date of Birth <span className="text-red-500">*</span>
                   </label>
-                  <Input type="date" placeholder="DD/MM/YYYY" className="border-[#d9d9d9]" required />
+                  <Input 
+                    name="date_of_birth"
+                    value={formData.date_of_birth}
+                    onChange={handleInputChange}
+                    type="date"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
               </div>
 
@@ -147,7 +251,13 @@ export default function RegistrationForm() {
                   <label className="text-sm text-[#61646b]">
                     School <span className="text-red-500">*</span>
                   </label>
-                  <Input placeholder="Your school name" className="border-[#d9d9d9]" required />
+                  <Input 
+                    name="school"
+                    value={formData.school}
+                    onChange={handleInputChange}
+                    placeholder="Your school name"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
               </div>
 
@@ -156,7 +266,7 @@ export default function RegistrationForm() {
                   <label className="text-sm text-[#61646b]">
                     Grade <span className="text-red-500">*</span>
                   </label>
-                  <Select>
+                  <Select onValueChange={(value) => handleSelectChange('grade', value)} value={formData.grade}>
                     <SelectTrigger className="border-[#d9d9d9]">
                       <SelectValue placeholder="Choose one" />
                     </SelectTrigger>
@@ -189,23 +299,30 @@ export default function RegistrationForm() {
                 <label className="text-sm text-[#61646b]">
                   What activities are you most excited to participate in? (maximum 300 words)
                 </label>
-                <Textarea placeholder="Type here" className="min-h-[150px] border-[#d9d9d9]" maxLength={300} />
+                <Textarea 
+                  name="activities"
+                  value={formData.activities}
+                  onChange={handleInputChange}
+                  placeholder="Type here"
+                  className="min-h-[150px] border-[#d9d9d9]"
+                  maxLength={300}
+                />
               </div>
 
               <div className="flex justify-center">
                 <Button
                   className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-12"
-                  onClick={() => setStep(2)}
+                  onClick={handleContinue}
                   type="button"
                 >
                   Continue
                 </Button>
               </div>
-            </form>
+            </div>
           )}
 
           {step === 2 && (
-            <form className="space-y-8">
+            <div className="space-y-8">
               <div className="space-y-6">
                 <h2 className="text-xl font-medium">Question 1:</h2>
                 <p className="text-[#61646b]">
@@ -248,8 +365,14 @@ export default function RegistrationForm() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm text-[#61646b]">Provide your URL here</label>
-                  <Input placeholder="Your URL" className="border-[#d9d9d9]" />
+                  <label className="text-sm text-[#61646b]">Video URL</label>
+                  <Input 
+                    name="video_url"
+                    value={formData.video_url}
+                    onChange={handleInputChange}
+                    placeholder="Your URL"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
               </div>
 
@@ -277,13 +400,14 @@ export default function RegistrationForm() {
               <div className="flex justify-center">
                 <Button
                   className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-12"
-                  onClick={() => setStep(3)}
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
                   type="button"
                 >
-                  Review & Checkout
+                  {isSubmitting ? 'Submitting...' : 'Submit Application'}
                 </Button>
               </div>
-            </form>
+            </div>
           )}
         </div>
       </main>
