@@ -6,7 +6,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
 import { useState } from "react"
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { supabase } from "@/lib/supabase"
 
 export default function RegistrationForm() {
@@ -23,7 +22,7 @@ export default function RegistrationForm() {
     referral_source: '',
     activities: '',
     video_url: '',
-    cv_url: 'hi',
+    cv_url: '',
     payment_status: 'pending',
     application_status: 'submitted'
   })
@@ -39,12 +38,32 @@ export default function RegistrationForm() {
   }
 
   const handleContinue = () => {
-    setStep(2) // Move to the next step
-    console.log("Current step:", step) // Log the current step
+    // Check if all required fields in step 1 are filled
+    if (
+      !formData.first_name ||
+      !formData.last_name ||
+      !formData.sex ||
+      !formData.email ||
+      !formData.date_of_birth ||
+      !formData.citizenship ||
+      !formData.school ||
+      !formData.grade ||
+      !formData.referral_source ||
+      !formData.activities
+    ) {
+      alert('Please fill in all required fields before continuing')
+      return
+    }
+    setStep(2)
   }
 
-
   const handleSubmit = async () => {
+    // Check if all required fields in step 2 are filled
+    if (!formData.video_url || !formData.cv_url) {
+      alert('Please provide both video URL and CV URL before submitting')
+      return
+    }
+    
     if (isSubmitting) return
     setIsSubmitting(true)
     
@@ -64,7 +83,7 @@ export default function RegistrationForm() {
             referral_source: formData.referral_source,
             activities: formData.activities,
             video_url: formData.video_url,
-            cv_url: 'hi',
+            cv_url: formData.cv_url,
             payment_status: 'pending',
             application_status: 'submitted'
           }
@@ -224,29 +243,20 @@ export default function RegistrationForm() {
                   <label className="text-sm text-[#61646b]">
                     Primary Citizenship <span className="text-red-500">*</span>
                   </label>
-                  <Select>
-                    <SelectTrigger className="border-[#d9d9d9]">
-                      <SelectValue placeholder="Dropdown Item" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="vn">Vietnam</SelectItem>
-                      <SelectItem value="us">United States</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Input
+                    name="citizenship"
+                    value={formData.citizenship}
+                    onChange={handleInputChange}
+                    placeholder="Your citizenship"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">Secondary Citizenship</label>
-                  <Select>
-                    <SelectTrigger className="border-[#d9d9d9]">
-                      <SelectValue placeholder="Dropdown Item" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="vn">Vietnam</SelectItem>
-                      <SelectItem value="us">United States</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Input
+                    placeholder="Optional"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
@@ -262,8 +272,8 @@ export default function RegistrationForm() {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
+              <div className="grid md:grid-cols-2 gap-6 items-stretch">
+                <div className="space-y-2 h-full">
                   <label className="text-sm text-[#61646b]">
                     Grade <span className="text-red-500">*</span>
                   </label>
@@ -272,17 +282,18 @@ export default function RegistrationForm() {
                       <SelectValue placeholder="Choose one" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="9">Grade 9</SelectItem>
                       <SelectItem value="10">Grade 10</SelectItem>
                       <SelectItem value="11">Grade 11</SelectItem>
                       <SelectItem value="12">Grade 12</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 h-full">
                   <label className="text-sm text-[#61646b]">
                     How do you know about FFL 2025? <span className="text-red-500">*</span>
                   </label>
-                  <Select>
+                  <Select onValueChange={(value) => handleSelectChange('referral_source', value)} value={formData.referral_source}>
                     <SelectTrigger className="border-[#d9d9d9]">
                       <SelectValue placeholder="Choose one" />
                     </SelectTrigger>
@@ -385,16 +396,20 @@ export default function RegistrationForm() {
                   <h3 className="font-medium">Submission Guidelines:</h3>
                   <ul className="list-disc list-inside text-[#61646b] space-y-2">
                     <li>You can find Harvard CV Templates to prepare your personal achievements.</li>
-                    <li>Please upload your CV directly to this website.</li>
-                    <li>Accepted file formats include PDF or Document.</li>
+                    <li>Please upload your CV to Google Drive or any file hosting service.</li>
+                    <li>Provide the URL to access your CV.</li>
                   </ul>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm text-[#61646b]">Upload file here</label>
-                  <div className="border-2 border-dashed border-[#d9d9d9] rounded-lg p-8 text-center">
-                    <p className="text-[#61646b]">Click or Drag to upload</p>
-                  </div>
+                  <label className="text-sm text-[#61646b]">CV URL <span className="text-red-500">*</span></label>
+                  <Input 
+                    name="cv_url"
+                    value={formData.cv_url}
+                    onChange={handleInputChange}
+                    placeholder="Your CV URL"
+                    className="border-[#d9d9d9]"
+                  />
                 </div>
               </div>
 
