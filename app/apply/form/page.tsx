@@ -427,7 +427,7 @@ export default function RegistrationForm() {
                   disabled={isSubmitting}
                   type="button"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                  {isSubmitting ? 'Submitting...' : 'Review & Checkout'}
                 </Button>
               </div>
             </div>
