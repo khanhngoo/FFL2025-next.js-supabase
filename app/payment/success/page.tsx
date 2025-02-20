@@ -1,9 +1,44 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Check } from "lucide-react"
 import Link from "next/link"
+import { useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { supabase } from '@/lib/supabase'
 
 export default function PaymentSuccessPage() {
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const updatePaymentStatus = async () => {
+      try {
+        const sessionId = searchParams.get('session_id')
+        const applicationId = localStorage.getItem('applicationId')
+
+        if (sessionId && applicationId) {
+          // Update payment status in Supabase
+          const { error } = await supabase
+            .from('applications')
+            .update({ payment_status: 'paid' })
+            .eq('id', applicationId)
+
+          if (error) {
+            console.error('Error updating payment status:', error)
+          } else {
+            // Clear the applicationId from localStorage after successful update
+            localStorage.removeItem('applicationId')
+          }
+        }
+      } catch (error) {
+        console.error('Error:', error)
+      }
+    }
+
+    updatePaymentStatus()
+  }, [searchParams])
+
   return (
     <div className="min-h-screen bg-white">
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-12">
