@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
 import { useState } from "react"
 import { supabase } from "@/lib/supabase"
+import { useRouter } from 'next/navigation'
 
 export default function RegistrationForm() {
+  const router = useRouter()
   const [step, setStep] = useState(1) // Manage the current step
   const [formData, setFormData] = useState({
     first_name: '',
@@ -92,14 +94,19 @@ export default function RegistrationForm() {
 
       if (error) {
         console.error('Error:', error)
+        alert('Error submitting application. Please try again.')
         return
       }
 
-      console.log('Success:', data)
-      // Handle successful submission (e.g., redirect to success page)
+      if (data && data[0]) {
+        // Store the application ID for payment processing
+        localStorage.setItem('applicationId', data[0].id)
+        // Redirect to checkout page
+        router.push('/checkout')
+      }
     } catch (error) {
       console.error('Error:', error)
-      // Handle error (e.g., show error message to user)
+      alert('Error submitting application. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -298,10 +305,10 @@ export default function RegistrationForm() {
                       <SelectValue placeholder="Choose one" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="social">Social Media</SelectItem>
-                      <SelectItem value="friend">Friend</SelectItem>
+                      <SelectItem value="fanpage">Fan Page</SelectItem>
+                      <SelectItem value="website">Website</SelectItem>
                       <SelectItem value="school">School</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="ambassadors">Future Founder Launchpad Ambassadors</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
