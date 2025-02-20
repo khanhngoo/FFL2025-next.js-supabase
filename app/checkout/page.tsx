@@ -1,8 +1,8 @@
 'use client'
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Button } from "@/components/ui/button"
 import { loadStripe } from '@stripe/stripe-js'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!)
 

@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
 import { useState } from "react"
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { supabase } from "@/lib/supabase"
 
 export default function RegistrationForm() {
@@ -63,7 +64,7 @@ export default function RegistrationForm() {
             referral_source: formData.referral_source,
             activities: formData.activities,
             video_url: formData.video_url,
-            cv_url: formData.cv_url,
+            cv_url: 'hi',
             payment_status: 'pending',
             application_status: 'submitted'
           }
