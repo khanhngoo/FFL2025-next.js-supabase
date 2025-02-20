@@ -23,10 +23,14 @@ export default function PaymentErrorPage() {
           </p>
 
           <div className="flex justify-center gap-4">
-            <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90">Register Again</Button>
-            <Button variant="outline" className="border-[#d9d9d9]">
-              Return Home
-            </Button>
+            <Link href="/apply/form">
+              <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90">Register Again</Button>
+            </Link>
+            <Link href="/">
+              <Button variant="outline" className="border-[#d9d9d9]">
+                Return Home
+              </Button>
+            </Link>
           </div>
         </div>
       </main>
