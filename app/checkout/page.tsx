@@ -56,7 +56,7 @@ export default function CheckoutPage() {
                 <span>$2,000.00</span>
               </div>
               <div className="border-t pt-4 flex justify-between font-bold text-[#21272a]">
-                <span>Total Fee</span>
+                <span>Total</span>
                 <span>$2,000.00</span>
               </div>
             </div>
