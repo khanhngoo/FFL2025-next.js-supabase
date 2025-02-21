@@ -39,7 +39,7 @@ export default function AboutPage() {
   
             <div className="flex flex-col gap-8 mb-8">
               
-              <div className="space-y-4 text-[#61646b]">
+              <div className="space-y-4 text-[#61646b] text-justify">
                 <p>
                   <span className="font-semibold">VinUniversity</span> is a private, not-for-profit university established
                   by Vingroup – the largest private conglomerate in Vietnam. VinUni aspires to become a university of
@@ -88,7 +88,7 @@ export default function AboutPage() {
               <div className="flex flex-col gap-2">
                     <h3 className="text-xl font-bold text-[#2529ff]">By Youth, For Youth
                     <br />We are a "Youth Leadership" movement </h3>
-                    <p className="text-[#61646b]">
+                    <p className="text-[#61646b] text-justify">
                       AIESEC in Vietnam (FHN Branch) is a branch of the world's largest youth-led organization, dedicated to
                       leadership development, global internships, and volunteer opportunities. We aim to develop
                       responsible, entrepreneurial and skilled young leaders today to contribute to societal change both
@@ -105,12 +105,12 @@ export default function AboutPage() {
                     />
 
                     <h3 className="text-xl font-bold text-[#2529ff]">We create value-driven leaders</h3>
-                    <p className="text-[#61646b]">
+                    <p className="text-[#61646b] text-justify">
                       Youth Engagement is a series of projects for High School students, aiming to engage young students
                       with AIESEC as an organization and the concept of Leadership Development.
                     </p>
 
-                    <p className="text-[#61646b]">
+                    <p className="text-[#61646b] text-justify">
                       By focusing on education initiatives inspired by the Sustainable Development Goals (SDGs), Youth
                       Engagement fosters Self-leadership, helping students navigate the uncertainties and challenges of
                       adolescence with confidence. Through meaningful connections with like-minded peers and professionals,
@@ -243,7 +243,7 @@ export default function AboutPage() {
                 <div className="flex">
                   <h3 className="text-xl font-bold text-[#2529ff] w-[300px]">By Youth, For Youth
                   <br />We are a "Youth Leadership" movement </h3>
-                  <p className="text-[#61646b] flex-1">
+                  <p className="text-[#61646b] flex-1 text-justify">
                     AIESEC in Vietnam (FHN Branch) is a branch of the world's largest youth-led organization, dedicated to
                     leadership development, global internships, and volunteer opportunities. We aim to develop
                     responsible, entrepreneurial and skilled young leaders today to contribute to societal change both
@@ -254,7 +254,7 @@ export default function AboutPage() {
 
                 <div className="flex">
                   <h3 className="text-xl font-bold text-[#2529ff] w-[300px]">We create value-driven leaders</h3>
-                  <p className="text-[#61646b] flex-1">
+                  <p className="text-[#61646b] flex-1 text-justify">
                     Youth Engagement is a series of projects for High School students, aiming to engage young students
                     with AIESEC as an organization and the concept of Leadership Development.
                   </p>
@@ -269,7 +269,7 @@ export default function AboutPage() {
                   >
                     https://www.aiesec.vn/
                   </Link>
-                  <p className="text-[#61646b] flex-1">
+                  <p className="text-[#61646b] flex-1 text-justify">
                     By focusing on education initiatives inspired by the Sustainable Development Goals (SDGs), Youth
                     Engagement fosters Self-leadership, helping students navigate the uncertainties and challenges of
                     adolescence with confidence. Through meaningful connections with like-minded peers and professionals,
