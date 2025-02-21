@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Check, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import "../../custom.css"
 
 export default function InformationPage() {
   return (
@@ -51,7 +52,7 @@ export default function InformationPage() {
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-[#21272a] mb-12">HIGHLIGHTED ACTIVITIES</h2>
             <div className="relative">
-              <div className="flex overflow-x-auto overflow-y-hidden pb-6 gap-6 snap-x snap-mandatory scrollbar-none">
+              <div className="flex overflow-x-auto overflow-y-hidden pb-6 gap-6 snap-x snap-mandatory scrollbar-hide">
                 {activities.map((activity, index) => (
                   <div key={index} className="bg-white rounded-lg overflow-hidden flex-none w-[250px] snap-center">
                     <Image
