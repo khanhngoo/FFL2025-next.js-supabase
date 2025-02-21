@@ -92,7 +92,30 @@ export default function LandingPage() {
             <br />
             FUTURE FOUNDERS LAUNCHPAD?
           </h2>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 flex flex-col md:flex-row">
+            <Image
+              src="/placeholder.svg?height=300&width=300"
+              alt="Expert"
+              width={300}
+              height={300}
+              className="rounded-full"
+            />
+            <div className="flex-1">
+              <p className="text-lg">This camp fun</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Talk Section */}
+      <section className="text-[#21272a] py-20">
+        <div className="container mx-auto px-6 gap-8">
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            WHAT COLLEGE STUDENTS TALK ABOUT
+            <br />
+            FUTURE FOUNDERS LAUNCHPAD?
+          </h2>
+          <div className="flex items-center gap-8 flex flex-col md:flex-row">
             <Image
               src="/placeholder.svg?height=300&width=300"
               alt="Expert"
