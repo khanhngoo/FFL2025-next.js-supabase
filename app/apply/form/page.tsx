@@ -8,7 +8,6 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { supabase } from "@/lib/supabase"
 import { useRouter } from 'next/navigation'
-import Image from "next/image"
 
 // First, define an interface for the form data structure
 interface FormData {
