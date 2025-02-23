@@ -34,9 +34,12 @@ export default function FAQPage() {
         </div>
 
         <div className="max-w-2xl mx-auto text-center space-y-6">
-          <h2 className="text-xl font-medium text-[#21272a]">Got more question?</h2>
-          <div className="flex gap-4 justify-center">
-            <Input placeholder="Type here" className="max-w-md border-[#d9d9d9]" />
+          <h2 className="text-xl font-medium text-[#21272a]">Got more questions?</h2>
+          <div className="flex gap-2 justify-center">
+            <div className="flex gap-1 justify-center">
+              <Input placeholder="Your email" className="max-w-md border-[#d9d9d9]" />
+              <Input placeholder="Type your question here" className="max-w-md border-[#d9d9d9]" />
+            </div>
             <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-8">Send</Button>
           </div>
         </div>

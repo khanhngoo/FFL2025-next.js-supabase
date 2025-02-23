@@ -19,10 +19,12 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
           <div className="container mx-auto px-6">
             <div>
-              <h1 className="text-5xl font-bold text-white mb-4">Future Founders Launchpad 2025</h1>
-              <p className="text-xl text-white mb-8">Small title</p>
+              <h1 className="text-5xl font-bold text-white mb-4">Future Founders Bootcamp 2025</h1>
+              <p className="text-xl text-white mb-8">Future Founders Bootcamp 2025 is more than a summer camp for future 
+entrepreneurs, many things are available for you to kickstart your dream! 
+</p>
               <Link href="/apply">
-                <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90">Apply Now</Button>
+                <Button className="text-xl bg-[#2529ff] text-white hover:bg-[#2529ff]/90 p-6">Apply Now</Button>
               </Link>
             </div>
           </div>
@@ -33,7 +35,7 @@ export default function LandingPage() {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-center text-4xl font-bold text-[#21272a] mb-8">WHAT IS FUTURE FOUNDERS LAUNCHPAD 2025?</h2>
-          <p className="text-[#61646b] mb-8 mx-auto">
+          <p className="text-[#61646b] mb-8 mx-auto text-justify">
             Future Founders Launchpad 2025 is an intensive summer camp hosted by ELab at VinUniversity in collaboration
             with AIESEC in Vietnam. Designed for ambitious young entrepreneurs, the program is a unique chance to
             network with like-minded peers, gain real-world insights, and kickstart your journey as a future

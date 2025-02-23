@@ -22,7 +22,7 @@ export default function RootLayout({
             alt="Logo"
             width={96}
             height={32}
-            className="w-24 h-8 object-contain"
+            className="w-auto h-8 object-contain hidden sm:block"
           />
           <div className="flex items-center gap-8">
             <Link href="/" className="text-[#61646b] hover:text-[#21272a]">

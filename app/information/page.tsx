@@ -75,7 +75,9 @@ export default function InformationPage() {
 
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-[#21272a] mb-4">Program Fee</h2>
-          <p className="text-[#61646b] mb-8">The cost of the program is $2,000 per person.</p>
+          <p className="text-[#61646b] mb-8">The cost of the program is $2,000 per person.
+            <br /><i>Note: The program cost will be changed after the application process. Qualified applications might receive financial aid after the review process.</i>
+          </p>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="border rounded-lg p-6">
@@ -110,7 +112,7 @@ export default function InformationPage() {
         </section>
 
         <section className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-[#21272a] mb-8">CALL TO ACTION SENTENCE!</h2>
+          <h2 className="text-3xl font-bold text-[#21272a] mb-8">HEY SUCCESSFUL ENTREPRENEUR, WHAT ARE YOU WAITING FOR?</h2>
           <div className="flex justify-center gap-4">
             <Link href="/apply">
                 <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90">Apply Now</Button>

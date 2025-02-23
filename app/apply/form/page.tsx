@@ -59,6 +59,10 @@ export default function RegistrationForm() {
     setStep(2)
   }
 
+  const handleBack = () => {
+    router.push('/apply')
+  }
+
   const handleSubmit = async () => {
     // Check if all required fields in step 2 are filled
     if (!formData.video_url || !formData.cv_url) {
@@ -152,11 +156,12 @@ export default function RegistrationForm() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold text-center text-[#21272a] mb-12">REGISTRATION FORM</h1>
+          <h1 className="text-4xl font-bold text-center text-[#21272a] mb-12">APPLICATION FORM</h1>
 
           {step === 1 && (
             <div className="space-y-8">
               <p className="text-[#61646b]">
+                <span className="font-bold text-[#21272a] text-xl">Your Personal Information</span> <br />
                 Please enter your full legal name as it appears on your government ID/Passport.
               </p>
 
@@ -191,7 +196,7 @@ export default function RegistrationForm() {
                   </label>
                   <Select onValueChange={(value) => handleSelectChange('sex', value)} value={formData.sex}>
                     <SelectTrigger className="border-[#d9d9d9]">
-                      <SelectValue placeholder="Choose one" />
+                      <SelectValue placeholder="Choose one"/>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="male">Male</SelectItem>
@@ -226,6 +231,12 @@ export default function RegistrationForm() {
                     className="border-[#d9d9d9]"
                   />
                 </div>
+              </div>
+              <p className="text-sm text-[#61646b]">
+                Please do not use an email address that you will lose access to before next fall (eg. school email, work
+                email, etc.)
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
                     Date of Birth <span className="text-red-500">*</span>
@@ -238,14 +249,23 @@ export default function RegistrationForm() {
                     className="border-[#d9d9d9]"
                   />
                 </div>
+                <div className="space-y-2">
+                  <label className="text-sm text-[#61646b]">
+                    Mobile phone<span className="text-red-500">*</span>
+                  </label>
+                  <Input 
+                    type="email"
+                    placeholder="(+84) 123 456 789"
+                    className="border-[#d9d9d9]"
+                  />
+                </div>
               </div>
+              
+            
 
-              <p className="text-sm text-[#61646b]">
-                Please do not use an email address that you will lose access to before next fall (eg. school email, work
-                email, etc.)
-              </p>
+              
 
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
                     Primary Citizenship <span className="text-red-500">*</span>
@@ -265,7 +285,11 @@ export default function RegistrationForm() {
                     className="border-[#d9d9d9]"
                   />
                 </div>
-                <div className="space-y-2">
+              </div>
+              
+
+              <div className="grid md:grid-cols-2 gap-6 items-stretch">
+              <div className="space-y-2">
                   <label className="text-sm text-[#61646b]">
                     School <span className="text-red-500">*</span>
                   </label>
@@ -277,9 +301,6 @@ export default function RegistrationForm() {
                     className="border-[#d9d9d9]"
                   />
                 </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 items-stretch">
                 <div className="space-y-2 h-full">
                   <label className="text-sm text-[#61646b]">
                     Grade <span className="text-red-500">*</span>
@@ -296,7 +317,8 @@ export default function RegistrationForm() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2 h-full">
+              </div>
+              <div className="space-y-2 h-full">
                   <label className="text-sm text-[#61646b]">
                     How do you know about FFL 2025? <span className="text-red-500">*</span>
                   </label>
@@ -312,7 +334,6 @@ export default function RegistrationForm() {
                     </SelectContent>
                   </Select>
                 </div>
-              </div>
 
               <div className="space-y-2">
                 <label className="text-sm text-[#61646b]">
@@ -328,7 +349,105 @@ export default function RegistrationForm() {
                 />
               </div>
 
-              <div className="flex justify-center">
+              {/* Guardian Information Section */}
+              <div className="space-y-8">
+                <p className="text-[#61646b]">
+                  <span className="font-bold text-[#21272a] text-xl">Your Legal Guardian Information</span> <br />
+                  Please enter your guardian's full legal name as it appears on your government ID/Passport.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm text-[#61646b]">
+                      First Name <span className="text-red-500">*</span>
+                    </label>
+                    <Input 
+                      name="first_name"
+                      value={formData.first_name}
+                      onChange={handleInputChange}
+                      placeholder="Your first name"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-[#61646b]">
+                      Last or Family name <span className="text-red-500">*</span>
+                    </label>
+                    <Input 
+                      name="last_name"
+                      value={formData.last_name}
+                      onChange={handleInputChange}
+                      placeholder="Your last or family name"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
+                  
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm text-[#61646b]">
+                      Email address <span className="text-red-500">*</span>
+                    </label>
+                    <Input 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      type="email"
+                      placeholder="example@email.com"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-[#61646b]">
+                      Confirm email address <span className="text-red-500">*</span>
+                    </label>
+                    <Input 
+                      type="email"
+                      placeholder="example@email.com"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
+                </div>
+                <p className="text-sm text-[#61646b]">
+                  Please do not use an email address that you will lose access to before next fall (eg. school email, work
+                  email, etc.)
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm text-[#61646b]">
+                      Date of Birth <span className="text-red-500">*</span>
+                    </label>
+                    <Input 
+                      name="date_of_birth"
+                      value={formData.date_of_birth}
+                      onChange={handleInputChange}
+                      type="date"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-[#61646b]">
+                      Mobile phone<span className="text-red-500">*</span>
+                    </label>
+                    <Input 
+                      type="email"
+                      placeholder="(+84) 123 456 789"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-between">
+                <Button
+                  variant="outline"
+                  className="border-[#d9d9d9] px-8"
+                  onClick={handleBack}
+                  type="button"
+                >
+                  Back
+                </Button>
                 <Button
                   className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-12"
                   onClick={handleContinue}
