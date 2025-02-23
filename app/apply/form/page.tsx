@@ -5,39 +5,116 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { supabase } from "@/lib/supabase"
 import { useRouter } from 'next/navigation'
 import Image from "next/image"
 
+// First, define an interface for the form data structure
+interface FormData {
+  first_name_guardian: string;
+  last_name_guardian: string;
+  email_guardian: string;
+  tel_guardian: string;
+  date_of_birth_guardian: string;
+  first_name: string;
+  last_name: string;
+  sex: string;
+  email: string;
+  tel: string;
+  date_of_birth: string;
+  citizenship: string;
+  school: string;
+  grade: string;
+  referral_source: string;
+  activities: string;
+  video_url: string;
+  cv_url: string;
+  payment_status: string;
+  application_status: string;
+}
+
 export default function RegistrationForm() {
   const router = useRouter()
-  const [step, setStep] = useState(1) // Manage the current step
-  const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    sex: '',
-    email: '',
-    date_of_birth: '',
-    citizenship: '',
-    school: '',
-    grade: '',
-    referral_source: '',
-    activities: '',
-    video_url: '',
-    cv_url: '',
-    payment_status: 'pending',
-    application_status: 'submitted'
+  const [step, setStep] = useState(() => {
+    // Get the saved step from sessionStorage or default to 1
+    if (typeof window !== 'undefined') {
+      const savedStep = sessionStorage.getItem('formStep')
+      return savedStep ? parseInt(savedStep) : 1
+    }
+    return 1
   })
+
+  const [formData, setFormData] = useState(() => {
+    // Get the saved form data from sessionStorage or use default values
+    if (typeof window !== 'undefined') {
+      const savedFormData = sessionStorage.getItem('formData')
+      return savedFormData ? JSON.parse(savedFormData) : {
+      first_name_guardian: '',
+      last_name_guardian: '',
+      email_guardian: '',
+      tel_guardian: '',
+      date_of_birth_guardian: '',
+      first_name: '',
+      last_name: '',
+      sex: '',
+      email: '',
+      tel: '',
+      date_of_birth: '',
+      citizenship: '',
+      school: '',
+      grade: '',
+      referral_source: '',
+      activities: '',
+      video_url: '',
+      cv_url: '',
+      payment_status: 'pending',
+      application_status: 'submitted'
+      }
+    }
+    return {
+      first_name_guardian: '',
+      last_name_guardian: '',
+      email_guardian: '',
+      tel_guardian: '',
+      date_of_birth_guardian: '',
+      first_name: '',
+      last_name: '',
+      sex: '',
+      email: '',
+      tel: '',
+      date_of_birth: '',
+      citizenship: '',
+      school: '',
+      grade: '',
+      referral_source: '',
+      activities: '',
+      video_url: '',
+      cv_url: '',
+      payment_status: 'pending',
+      application_status: 'submitted'
+    }
+  })
+
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Save form data to sessionStorage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem('formData', JSON.stringify(formData))
+  }, [formData])
+
+  // Save step to sessionStorage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem('formStep', step.toString())
+  }, [step])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+    setFormData((prev: FormData) => ({ ...prev, [name]: value }))
   }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }))
+    setFormData((prev: FormData) => ({ ...prev, [name]: value }))
   }
 
   const handleContinue = () => {
@@ -61,6 +138,9 @@ export default function RegistrationForm() {
   }
 
   const handleBack = () => {
+    // Clear session storage when going back to apply page
+    sessionStorage.removeItem('formData')
+    sessionStorage.removeItem('formStep')
     router.push('/apply')
   }
 
@@ -77,24 +157,7 @@ export default function RegistrationForm() {
     try {
       const { data, error } = await supabase
         .from('applications')
-        .insert([
-          {
-            first_name: formData.first_name,
-            last_name: formData.last_name,
-            sex: formData.sex,
-            email: formData.email,
-            date_of_birth: formData.date_of_birth,
-            citizenship: formData.citizenship,
-            school: formData.school,
-            grade: formData.grade,
-            referral_source: formData.referral_source,
-            activities: formData.activities,
-            video_url: formData.video_url,
-            cv_url: formData.cv_url,
-            payment_status: 'pending',
-            application_status: 'submitted'
-          }
-        ])
+        .insert([formData])
         .select()
 
       if (error) {
@@ -106,6 +169,9 @@ export default function RegistrationForm() {
       if (data && data[0]) {
         // Store the application ID for payment processing
         localStorage.setItem('applicationId', data[0].id)
+        // Clear session storage after successful submission
+        sessionStorage.removeItem('formData')
+        sessionStorage.removeItem('formStep')
         // Redirect to checkout page
         router.push('/checkout')
       }
@@ -255,7 +321,10 @@ export default function RegistrationForm() {
                     Mobile phone<span className="text-red-500">*</span>
                   </label>
                   <Input 
-                    type="email"
+                    type="tel"
+                    name="tel"
+                    value={formData.tel}
+                    onChange={handleInputChange}
                     placeholder="(+84) 123 456 789"
                     className="border-[#d9d9d9]"
                   />
@@ -363,8 +432,8 @@ export default function RegistrationForm() {
                       First Name <span className="text-red-500">*</span>
                     </label>
                     <Input 
-                      name="first_name"
-                      value={formData.first_name}
+                      name="first_name_guardian"
+                      value={formData.first_name_guardian}
                       onChange={handleInputChange}
                       placeholder="Your first name"
                       className="border-[#d9d9d9]"
@@ -375,8 +444,8 @@ export default function RegistrationForm() {
                       Last or Family name <span className="text-red-500">*</span>
                     </label>
                     <Input 
-                      name="last_name"
-                      value={formData.last_name}
+                      name="last_name_guardian"
+                      value={formData.last_name_guardian}
                       onChange={handleInputChange}
                       placeholder="Your last or family name"
                       className="border-[#d9d9d9]"
@@ -391,8 +460,8 @@ export default function RegistrationForm() {
                       Email address <span className="text-red-500">*</span>
                     </label>
                     <Input 
-                      name="email"
-                      value={formData.email}
+                      name="email_guardian"
+                      value={formData.email_guardian}
                       onChange={handleInputChange}
                       type="email"
                       placeholder="example@email.com"
@@ -420,8 +489,8 @@ export default function RegistrationForm() {
                       Date of Birth <span className="text-red-500">*</span>
                     </label>
                     <Input 
-                      name="date_of_birth"
-                      value={formData.date_of_birth}
+                      name="date_of_birth_guardian"
+                      value={formData.date_of_birth_guardian}
                       onChange={handleInputChange}
                       type="date"
                       className="border-[#d9d9d9]"
@@ -432,7 +501,10 @@ export default function RegistrationForm() {
                       Mobile phone<span className="text-red-500">*</span>
                     </label>
                     <Input 
-                      type="email"
+                      type="tel"
+                      name="tel_guardian"
+                      value={formData.tel_guardian}
+                      onChange={handleInputChange}
                       placeholder="(+84) 123 456 789"
                       className="border-[#d9d9d9]"
                     />
@@ -470,7 +542,7 @@ export default function RegistrationForm() {
                 </p>
                 <ul className="list-disc list-inside text-[#61646b] space-y-2">
                   <li>A short introduction about yourself</li>
-                  <li>Your reason for wanting to join the Future Founders Launchpad</li>
+                  <li>Your reason for wanting to join the Future Founders Bootcamp</li>
                   <li>
                     A business idea you are currently pursuing or planning to develop. If you do not have any ideas to
                     propose, do not worry. You can tell us about your dreams and aspirations in the future.
