@@ -8,6 +8,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { supabase } from "@/lib/supabase"
 import { useRouter } from 'next/navigation'
+import Image from "next/image"
 
 export default function RegistrationForm() {
   const router = useRouter()
@@ -330,7 +331,7 @@ export default function RegistrationForm() {
                       <SelectItem value="fanpage">Fan Page</SelectItem>
                       <SelectItem value="website">Website</SelectItem>
                       <SelectItem value="school">School</SelectItem>
-                      <SelectItem value="ambassadors">Future Founder Launchpad Ambassadors</SelectItem>
+                      <SelectItem value="ambassadors">Future Founder Bootcamp Ambassadors</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
