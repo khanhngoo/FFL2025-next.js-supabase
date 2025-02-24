@@ -7,7 +7,7 @@ export default function ApplyPage() {
       <main className="container mx-auto px-6 py-12">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold text-[#21272a] text-center mb-12">
-            FUTURE FOUNDERS LAUNCHPAD 2025
+            FUTURE FOUNDERS BOOTCAMP 2025
             <br />
             APPLICATION FORM
           </h1>
