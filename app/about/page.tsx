@@ -293,7 +293,7 @@ export default function AboutPage() {
 
         {/* Call to Action */}
         <section className="text-center">
-          <h2 className="text-3xl font-bold text-[#21272a] mb-8">CALL TO ACTION!</h2>
+          <h2 className="text-3xl font-bold text-[#21272a] mb-8">HEY SUCCESSFUL ENTREPRENEUR, WHAT ARE YOU WAITING FOR?</h2>
           <div className="flex justify-center gap-4">
             <Link href="/apply">
               <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90">Apply Now</Button>
