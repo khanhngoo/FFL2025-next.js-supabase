@@ -12,7 +12,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       <main className="container mx-auto px-6 py-12">
-        <h1 className="text-center text-4xl font-bold text-[#21272a] mb-12">FUTURE FOUNDERS LAUNCHPAD 2025 FAQ</h1>
+        <h1 className="text-center text-4xl font-bold text-[#21272a] mb-12">FUTURE FOUNDERS BOOTCAMP 2025 FAQ</h1>
 
         <div className="max-w-4xl mx-auto mb-20">
           {faqItems.map((item, index) => (
@@ -42,6 +42,8 @@ export default function FAQPage() {
             </div>
             <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-8">Send</Button>
           </div>
+          <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-8">Contact us through fanpage</Button>
+
         </div>
       </main>
 
@@ -92,17 +94,17 @@ export default function FAQPage() {
 
 const faqItems = [
   {
-    question: "What is Future Founders Launchpad 2025?",
+    question: "What is Future Founders Bootcamp 2025?",
     answer:
-      "Future Founders Launchpad 2025 is an intensive summer camp hosted by ELab at VinUniversity in collaboration with AIESEC in Vietnam. The program offers an immersive experience designed for aspiring young entrepreneurs to develop essential entrepreneurial skills, foster creativity, and build impactful ideas.",
+      "Future Founders Bootcamp 2025 is an intensive summer camp hosted by ELab at VinUniversity in collaboration with AIESEC in Vietnam. The program offers an immersive experience designed for aspiring young entrepreneurs to develop essential entrepreneurial skills, foster creativity, and build impactful ideas.",
   },
   {
-    question: "Which organization will host Future Founders Launchpad 2025?",
+    question: "Which organization will host Future Founders Bootcamp 2025?",
     answer:
       "The program is co-hosted by ELab at VinUniversity and AIESEC in Vietnam. These organizations work together to provide a comprehensive entrepreneurship program that combines academic excellence with practical industry experience.",
   },
   {
-    question: "Who is eligible for Future Founders Launchpad 2025?",
+    question: "Who is eligible for Future Founders Bootcamp 2025?",
     answer:
       "The program is open to all high school students who show interest and passion for entrepreneurship. Participants must be proficient in English as the program is conducted entirely in English.",
   },

@@ -260,7 +260,7 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="flex items-end">
+                <div className="font-medium flex items-end">
                   <Link
                     href="https://www.aiesec.vn/"
                     className="text-[#2529ff] hover:underline w-[300px]"

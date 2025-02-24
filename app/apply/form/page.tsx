@@ -8,9 +8,11 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { supabase } from "@/lib/supabase"
 import { useRouter } from 'next/navigation'
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio"
 
 // First, define an interface for the form data structure
 interface FormData {
+  guardian_relationship: string;
   first_name_guardian: string;
   last_name_guardian: string;
   email_guardian: string;
@@ -26,6 +28,7 @@ interface FormData {
   school: string;
   grade: string;
   referral_source: string;
+  referral_source_other?: string;
   activities: string;
   video_url: string;
   cv_url: string;
@@ -49,6 +52,7 @@ export default function RegistrationForm() {
     if (typeof window !== 'undefined') {
       const savedFormData = sessionStorage.getItem('formData')
       return savedFormData ? JSON.parse(savedFormData) : {
+      guardian_relationship: '',
       first_name_guardian: '',
       last_name_guardian: '',
       email_guardian: '',
@@ -64,6 +68,7 @@ export default function RegistrationForm() {
       school: '',
       grade: '',
       referral_source: '',
+      referral_source_other: '',
       activities: '',
       video_url: '',
       cv_url: '',
@@ -72,6 +77,7 @@ export default function RegistrationForm() {
       }
     }
     return {
+      guardian_relationship: '',
       first_name_guardian: '',
       last_name_guardian: '',
       email_guardian: '',
@@ -87,6 +93,7 @@ export default function RegistrationForm() {
       school: '',
       grade: '',
       referral_source: '',
+      referral_source_other: '',
       activities: '',
       video_url: '',
       cv_url: '',
@@ -128,7 +135,8 @@ export default function RegistrationForm() {
       !formData.school ||
       !formData.grade ||
       !formData.referral_source ||
-      !formData.activities
+      !formData.activities ||
+      !formData.guardian_relationship
     ) {
       alert('Please fill in all required fields before continuing')
       return
@@ -388,21 +396,56 @@ export default function RegistrationForm() {
                 </div>
               </div>
               <div className="space-y-2 h-full">
-                  <label className="text-sm text-[#61646b]">
-                    How do you know about FFL 2025? <span className="text-red-500">*</span>
-                  </label>
-                  <Select onValueChange={(value) => handleSelectChange('referral_source', value)} value={formData.referral_source}>
-                    <SelectTrigger className="border-[#d9d9d9]">
-                      <SelectValue placeholder="Choose one" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="fanpage">Fan Page</SelectItem>
-                      <SelectItem value="website">Website</SelectItem>
-                      <SelectItem value="school">School</SelectItem>
-                      <SelectItem value="ambassadors">Future Founder Bootcamp Ambassadors</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                <label className="text-sm text-[#61646b]">
+                  How do you know about FFL 2025? <span className="text-red-500">*</span>
+                </label>
+                <RadioGroup
+                  value={formData.referral_source}
+                  onValueChange={(value: string) => handleSelectChange('referral_source', value)}
+                  className="space-y-1 mt-1"
+                >
+                  <RadioGroupItem value="ffl_fanpage" id="ffl_fanpage">
+                    Future Founder Bootcamp Fanpage
+                  </RadioGroupItem>
+                  <RadioGroupItem value="ffl_website" id="ffl_website">
+                    Future Founder Bootcamp Website
+                  </RadioGroupItem>
+                  <RadioGroupItem value="school" id="school">
+                    School
+                  </RadioGroupItem>
+                  <RadioGroupItem value="ffl_ambassadors" id="ffl_ambassadors">
+                    Future Founder Bootcamp Ambassadors
+                  </RadioGroupItem>
+                  <RadioGroupItem value="dash_channels" id="dash_channels">
+                    Dash For Impact channels: Dash For Impact Email, Dash For Impact Fanpage, Dash For Impact Business Hub, ...
+                  </RadioGroupItem>
+                  <RadioGroupItem value="aiesec_channels" id="aiesec_channels">
+                    AIESEC channels: AIESEC in Vietnam Fanpage, AIESEC in Vietnam Email, …
+                  </RadioGroupItem>
+                  <RadioGroupItem value="vinuni_channels" id="vinuni_channels">
+                    VinUniversity channels: VinUniversity Fanpage, VinUniversity Email, …
+                  </RadioGroupItem>
+                  <RadioGroupItem value="friends" id="friends">
+                    Friends
+                  </RadioGroupItem>
+                  <RadioGroupItem value="other" id="other">
+                    Others
+                  </RadioGroupItem>
+                </RadioGroup>
+
+                {/* Show text input if "Others" is selected */}
+                {formData.referral_source === 'other' && (
+                  <div className="mt-2 ml-6">
+                    <Input
+                      name="referral_source_other"
+                      value={formData.referral_source_other || ''}
+                      onChange={handleInputChange}
+                      placeholder="Please specify"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
+                )}
+              </div>
 
               <div className="space-y-2">
                 <label className="text-sm text-[#61646b]">
@@ -422,10 +465,10 @@ export default function RegistrationForm() {
               <div className="space-y-8">
                 <p className="text-[#61646b]">
                   <span className="font-bold text-[#21272a] text-xl">Your Legal Guardian Information</span> <br />
-                  Please enter your guardian's full legal name as it appears on your government ID/Passport.
+                  Please enter your guardian's full legal name as it appears on your guardian's government ID/Passport.
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-3 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm text-[#61646b]">
                       First Name <span className="text-red-500">*</span>
@@ -450,7 +493,26 @@ export default function RegistrationForm() {
                       className="border-[#d9d9d9]"
                     />
                   </div>
-                  
+                  <div className="space-y-2 h-full">
+                  <label className="text-sm text-[#61646b]">
+                    Relationship with you<span className="text-red-500">*</span>
+                  </label>
+                  <Select onValueChange={(value) => handleSelectChange('guardian_relationship', value)} value={formData.guardian_relationship}>
+                    <SelectTrigger className="border-[#d9d9d9]">
+                      <SelectValue placeholder="Choose one" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="father">Father</SelectItem>
+                      <SelectItem value="mother">Mother</SelectItem>
+                      <SelectItem value="step_mother">Step-mother</SelectItem>
+                      <SelectItem value="step_father">Step-father</SelectItem>
+                      <SelectItem value="grandmother">Grandmother</SelectItem>
+                      <SelectItem value="grandfather">Grandfather</SelectItem>
+                      <SelectItem value="step_grandmother">Step-grandmother</SelectItem>
+                      <SelectItem value="step_grandfather">Step-grandfather</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
