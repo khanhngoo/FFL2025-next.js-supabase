@@ -48,7 +48,7 @@ function PaymentSuccessContent() {
 
       <h1 className="text-4xl font-bold text-[#21272a]">PAYMENT SUCCESSFUL</h1>
 
-      <h2 className="text-2xl font-medium text-[#21272a]">Thank you for applying to Future Founder Launchpad!</h2>
+      <h2 className="text-2xl font-medium text-[#21272a]">Thank you for applying to Future Founder Bootcamp!</h2>
 
       <p className="text-[#61646b] max-w-2xl mx-auto">
         A confirmation of the application will be sent to your email as soon as possible. Please check your inbox

@@ -96,12 +96,12 @@ const faqItems = [
   {
     question: "What is Future Founders Bootcamp 2025?",
     answer:
-      "Future Founders Bootcamp 2025 is an intensive summer camp hosted by ELab at VinUniversity in collaboration with AIESEC in Vietnam. The program offers an immersive experience designed for aspiring young entrepreneurs to develop essential entrepreneurial skills, foster creativity, and build impactful ideas.",
+      "Future Founders Bootcamp 2025 is an intensive summer camp hosted by ELab at VinUniversity. The program offers an immersive experience designed for aspiring young entrepreneurs to develop essential entrepreneurial skills, foster creativity, and build impactful ideas.",
   },
   {
     question: "Which organization will host Future Founders Bootcamp 2025?",
     answer:
-      "The program is co-hosted by ELab at VinUniversity and AIESEC in Vietnam. These organizations work together to provide a comprehensive entrepreneurship program that combines academic excellence with practical industry experience.",
+      "The program is co-hosted by ELab at VinUniversity. These organizations work together to provide a comprehensive entrepreneurship program that combines academic excellence with practical industry experience.",
   },
   {
     question: "Who is eligible for Future Founders Bootcamp 2025?",

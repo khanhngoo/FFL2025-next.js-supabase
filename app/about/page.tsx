@@ -83,7 +83,7 @@ export default function AboutPage() {
           </section>
   
           {/* About AIESEC Section */}
-          <section className="mb-16">
+          {/* <section className="mb-16">
             <h2 className="text-2xl font-bold text-[#21272a] mb-6">About AIESEC</h2>
               <div className="flex flex-col gap-2">
                     <h3 className="text-xl font-bold text-[#2529ff]">By Youth, For Youth
@@ -135,7 +135,7 @@ export default function AboutPage() {
   
                 
               
-          </section>
+          </section> */}
   
           {/* Call to Action */}
           <section className="text-center">
@@ -236,7 +236,7 @@ export default function AboutPage() {
         </section>
 
         {/* About AIESEC Section */}
-        <section className="mb-16">
+        {/*<section className="mb-16">
           <h2 className="text-2xl font-bold text-[#21272a] mb-6">About AIESEC</h2>
             <div className="grid lg:grid-cols-[1fr_400px] gap-2 h-auto">
               <div className="flex flex-col gap-4">
@@ -289,7 +289,7 @@ export default function AboutPage() {
               className="rounded-lg w-full h-auto"
             />
             </div>
-        </section>
+        </section> */}
 
         {/* Call to Action */}
         <section className="text-center">

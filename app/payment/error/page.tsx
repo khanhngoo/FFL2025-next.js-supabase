@@ -14,8 +14,8 @@ export default function PaymentErrorPage() {
           <h1 className="text-4xl font-bold text-[#21272a]">PAYMENT UNSUCCESSFUL</h1>
 
           <p className="text-[#61646b] max-w-2xl mx-auto">
-            Future Founders Launchpad 2025 is an intensive summer camp hosted by ELab at VinUniversity in collaboration
-            with AIESEC in Vietnam. Designed for ambitious young entrepreneurs, the program is a unique chance to
+            Future Founder Bootcamp 2025 is an intensive summer camp hosted by ELab at VinUniversity. 
+            Designed for ambitious young entrepreneurs, the program is a unique chance to
             network with like-minded peers, gain real-world insights, and kickstart your journey as a future
             changemaker. We are here to experience hands-on workshops, mentorship and culminate in a pitch competition
             to showcase your innovative solutions. We overcome dynamic team challenges, develop entrepreneurial skills,

@@ -449,7 +449,7 @@ export default function RegistrationForm() {
 
               <div className="space-y-2">
                 <label className="text-sm text-[#61646b]">
-                  What activities are you most excited to participate in? (maximum 300 words)
+                  What activities are you most excited to participate in? (maximum 300 words) <span className="text-red-500">*</span>
                 </label>
                 <Textarea 
                   name="activities"
