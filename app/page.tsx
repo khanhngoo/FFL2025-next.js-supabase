@@ -11,7 +11,7 @@ export default function LandingPage() {
       <section className="relative h-screen">
         <Image
           src="/placeholder.svg?height=1080&width=1920"
-          alt="Future Founders Launchpad 2025"
+          alt="Future Founders Bootcamp 2025"
           layout="fill"
           objectFit="cover"
           priority
@@ -34,9 +34,9 @@ entrepreneurs, many things are available for you to kickstart your dream!
       {/* What Is Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-center text-4xl font-bold text-[#21272a] mb-8">WHAT IS FUTURE FOUNDERS LAUNCHPAD 2025?</h2>
+          <h2 className="text-center text-4xl font-bold text-[#21272a] mb-8">WHAT IS FUTURE FOUNDERS BOOTCAMP 2025?</h2>
           <p className="text-[#61646b] mb-8 mx-auto text-justify">
-            Future Founders Launchpad 2025 is an intensive summer camp hosted by ELab at VinUniversity in collaboration
+            Future Founders Bootcamp 2025 is an intensive summer camp hosted by ELab at VinUniversity in collaboration
             with AIESEC in Vietnam. Designed for ambitious young entrepreneurs, the program is a unique chance to
             network with like-minded peers, gain real-world insights, and kickstart your journey as a future
             changemaker. We are here to experience hands-on workshops, mentorship and culminate in a pitch competition
@@ -62,7 +62,7 @@ entrepreneurs, many things are available for you to kickstart your dream!
           <h2 className="text-4xl font-bold text-center text-[#21272a] mb-12">
             WHAT CAN YOU GET FROM
             <br />
-            FUTURE FOUNDERS LAUNCHPAD 2025?
+            FUTURE FOUNDERS BOOTCAMP 2025?
           </h2>
           <div className="relative">
             <div className="flex overflow-x-auto overflow-y-hidden pb-6 gap-6 snap-x snap-mandatory scrollbar-hide">
@@ -92,7 +92,7 @@ entrepreneurs, many things are available for you to kickstart your dream!
           <h2 className="text-4xl font-bold mb-12 text-center">
             WHAT EXPERTS TALK ABOUT
             <br />
-            FUTURE FOUNDERS LAUNCHPAD?
+            FUTURE FOUNDERS BOOTCAMP?
           </h2>
           <div className="flex items-center gap-8 flex flex-col md:flex-row">
             <Image
@@ -115,7 +115,7 @@ entrepreneurs, many things are available for you to kickstart your dream!
           <h2 className="text-4xl font-bold mb-12 text-center">
             WHAT COLLEGE STUDENTS TALK ABOUT
             <br />
-            FUTURE FOUNDERS LAUNCHPAD?
+            FUTURE FOUNDERS BOOTCAMP?
           </h2>
           <div className="flex items-center gap-8 flex flex-col md:flex-row">
             <Image
