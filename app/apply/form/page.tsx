@@ -637,7 +637,7 @@ export default function RegistrationForm() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm text-[#61646b]">Video URL</label>
+                  <label className="text-sm text-[#61646b]">Video URL <span className="text-red-500">*</span></label>
                   <Input 
                     name="video_url"
                     value={formData.video_url}
@@ -673,7 +673,15 @@ export default function RegistrationForm() {
                 </div>
               </div>
 
-              <div className="flex justify-center">
+              <div className="flex justify-between">
+              <Button
+                  variant="outline"
+                  className="border-[#d9d9d9] px-8"
+                  onClick={handleBack}
+                  type="button"
+                >
+                  Back
+                </Button>
                 <Button
                   className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-12"
                   onClick={handleSubmit}
