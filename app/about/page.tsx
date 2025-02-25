@@ -235,7 +235,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* About AIESEC Section */}
+        {/* About AIESEC Section mobile */}
         {/*<section className="mb-16">
           <h2 className="text-2xl font-bold text-[#21272a] mb-6">About AIESEC</h2>
             <div className="grid lg:grid-cols-[1fr_400px] gap-2 h-auto">
