@@ -1,10 +1,25 @@
+"use client"
+
 import "../custom.css"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { useState, useCallback, useEffect } from 'react';
+import { type CarouselApi } from '@/components/ui/carousel';
+import { useCarouselState } from "@/hooks/useCarouselState"
 
 export default function LandingPage() {
+  const { api, setApi, current, count } = useCarouselState();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -87,24 +102,95 @@ entrepreneurs, many things are available for you to kickstart your dream!
       </section>
 
       {/* Expert Talk Section */}
-      <section className="bg-[#2529ff] py-20 text-white">
+      <section className="bg-[#2529ff] py-20 pb-5 text-white">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold mb-12 text-center">
             WHAT EXPERTS TALK ABOUT
             <br />
             FUTURE FOUNDERS BOOTCAMP?
           </h2>
-          <div className="flex items-center gap-8 flex flex-col md:flex-row">
-            <Image
-              src="/placeholder.svg?height=300&width=300"
-              alt="Expert"
-              width={300}
-              height={300}
-              className="rounded-full"
-            />
-            <div className="flex-1">
-              <p className="text-lg">This camp fun</p>
-            </div>
+          <div className="px-6 relative">
+            <Carousel className="w-full" opts={{ loop: true }} setApi={setApi}>
+              <CarouselContent>
+                <CarouselItem>
+                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
+                    <Image
+                      src="/placeholder.svg?height=300&width=300"
+                      alt="Expert"
+                      width={300}
+                      height={300}
+                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                    />
+                    <div className="flex-1">
+                      <div className="flex flex-col gap-6">
+                        <p className="text-4xl font-bold text-center md:text-left">Ms. Hue/Alex</p>
+                        <p className="text-md text-justify">For years, I’ve watched talented Vietnamese high school students travel across the world in search of experiences to strengthen their college applications and gain real-world skills. But today, Vietnam itself is becoming a hub of innovation, and Future Founder Bootcamp will offer you the same high-caliber opportunities, right at home.
+It is where every magical thing can happen. You will gain core skills for your lifetime to independently grow as a person before learning to become an entrepreneur leader. You can turn your ideas into reality, or give yourself a chance to build a network with experts and all 'future founders' like you.
+The world is looking at Vietnam. Now is your chance to grow, lead, and build your future—right here.
+</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
+                    <Image
+                      src="/placeholder.svg?height=300&width=300"
+                      alt="Expert"
+                      width={300}
+                      height={300}
+                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                    />
+                    <div className="flex-1">
+                      <div className="flex flex-col gap-6">
+                        <p className="text-4xl font-bold text-center md:text-left">Kim Young Un, PhD</p>
+                        <p className="text-md text-justify">Having a chance to lead and inspire lots of prospective students at VinUniversity gives me the best experience ever. 
+It has shown me that this country is not just a place of growth, but a place of opportunity. Future Founders Bootcamp is the place for students to gain hands-on experience, tackle real-world challenges, and develop the problem-solving mindset that top universities seek.
+College applications can be a stressful journey, but it does not have to be. Enjoy your learning at Future Founders Bootcamp to not only academically grow, but also create meaningful experience for your youth. 
+You cannot understand what I say if you do not shoot your shot in this amazing country. So, why not?
+</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
+                    <Image
+                      src="/placeholder.svg?height=300&width=300"
+                      alt="Expert"
+                      width={300}
+                      height={300}
+                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                    />
+                    <div className="flex-1">
+                      <div className="flex flex-col gap-6">
+                        <p className="text-4xl font-bold text-center md:text-left">Phi Thi Linh Giang, PhD</p>
+                        <p className="text-md text-justify">Entrepreneurship is not just about starting a business; it’s about seeing opportunities where others see obstacles. Through years in this field, I’ve learned that true leadership comes from resilience, adaptability, and the courage to innovate.
+This summer program is the most suitable place for future change-makers—offering real-world insights, hands-on projects, and mentorship from industry experts. You’ll gain the mindset and skills to turn ideas into impact, all while connecting with like-minded peers who challenge and inspire you.
+If you’re ready to think big and build something meaningful, this would be where your journey begins.
+</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious className="left-0 h-12 w-12 border-0 hover:bg-white/50 text-black">
+                <div className="text-white text-2xl">&lt;</div>
+              </CarouselPrevious>
+              <CarouselNext className="right-0 h-12 w-12 border-0 hover:bg-white/50 text-black">
+                <div className="text-white text-2xl">&gt;</div>
+              </CarouselNext>
+              <div className="bottom-0 left-0 right-0 flex justify-center gap-2 py-4">
+                {Array.from({ length: count }).map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full bg-white transition-opacity duration-300 ${
+                      current === index ? "opacity-100" : "opacity-50"
+                    }`}
+                  />
+                ))}
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>
