@@ -196,24 +196,88 @@ If you’re ready to think big and build something meaningful, this would be whe
       </section>
 
       {/* Student Talk Section */}
-      <section className="text-[#21272a] py-20">
-        <div className="container mx-auto px-6 gap-8">
+      <section className="text-[#21272a] py-20 pb-5">
+        <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold mb-12 text-center">
             WHAT COLLEGE STUDENTS TALK ABOUT
             <br />
             FUTURE FOUNDERS BOOTCAMP?
           </h2>
-          <div className="flex items-center gap-8 flex flex-col md:flex-row">
-            <Image
-              src="/placeholder.svg?height=300&width=300"
-              alt="Expert"
-              width={300}
-              height={300}
-              className="rounded-full"
-            />
-            <div className="flex-1">
-              <p className="text-lg">This camp fun</p>
-            </div>
+          <div className="px-6 relative">
+            <Carousel className="w-full" opts={{ loop: true }} setApi={setApi}>
+              <CarouselContent>
+                <CarouselItem>
+                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
+                    <Image
+                      src="/placeholder.svg?height=300&width=300"
+                      alt="Expert"
+                      width={300}
+                      height={300}
+                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                    />
+                    <div className="flex-1">
+                      <div className="flex flex-col gap-6">
+                        <p className="text-4xl font-bold text-center md:text-left">STUDENT NAME</p>
+                        <p className="text-md text-justify">lorem ipsum
+</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
+                    <Image
+                      src="/placeholder.svg?height=300&width=300"
+                      alt="Expert"
+                      width={300}
+                      height={300}
+                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                    />
+                    <div className="flex-1">
+                      <div className="flex flex-col gap-6">
+                        <p className="text-4xl font-bold text-center md:text-left">STUDENT NAME</p>
+                        <p className="text-md text-justify">lorem ipsum
+</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
+                    <Image
+                      src="/placeholder.svg?height=300&width=300"
+                      alt="Expert"
+                      width={300}
+                      height={300}
+                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                    />
+                    <div className="flex-1">
+                      <div className="flex flex-col gap-6">
+                        <p className="text-4xl font-bold text-center md:text-left">STUDENT NAME</p>
+                        <p className="text-md text-justify">lorem ipsum
+</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious className="left-0 h-12 w-12 border-0 bg-black hover:bg-black/50 hover:text-white text-white">
+                <div className="text-white text-2xl">&lt;</div>
+              </CarouselPrevious>
+              <CarouselNext className="right-0 h-12 w-12 border-0 bg-black hover:bg-black/50 hover:text-white text-white">
+                <div className="text-white text-2xl">&gt;</div>
+              </CarouselNext>
+              <div className="bottom-0 left-0 right-0 flex justify-center gap-2 py-4">
+                {Array.from({ length: count }).map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full bg-black transition-opacity duration-300 ${
+                      current === index ? "opacity-100" : "opacity-50"
+                    }`}
+                  />
+                ))}
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>
