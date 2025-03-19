@@ -24,11 +24,9 @@ export default function RootLayout({
         {/* Navigation */}
         <nav className="relative border-b">
           <div className="flex items-center justify-between px-6 py-4 lg:px-8">
-            <Image
-              src="/placeholder.svg?height=32&width=96"
+            <img
+              src="/placeholder.svg"
               alt="Logo"
-              width={96}
-              height={32}
               className="w-auto h-8 object-contain"
             />
             

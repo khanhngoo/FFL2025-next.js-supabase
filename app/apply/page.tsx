@@ -31,6 +31,13 @@ export default function ApplyPage() {
               The application is now open for submissions.
             </p>
 
+            <p className="text-[#61646b]">
+              Spend a summer in a professional environment with top-tier experts in entrepreneurship and hand-ons activities for your personal portfolio. Future Founders Bootcamp is where your dreams become true. 
+            </p>
+            <p className="text-[#61646b]">
+              Future Founders Bootcamp provides you the need to <span className="font-bold">strengthen your college application</span> and <span className="font-bold">create meaningful experience</span>. So, what are you waiting for? 
+            </p>
+
             <p className="text-[#61646b] italic">
               Note: The application form will not be saved automatically. Please make sure to save your information on a
               separate document to ensure a smooth application process.

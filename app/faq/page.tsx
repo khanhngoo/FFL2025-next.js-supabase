@@ -14,6 +14,19 @@ export default function FAQPage() {
       <main className="container mx-auto px-6 py-12">
         <h1 className="text-center text-4xl font-bold text-[#21272a] mb-12">FUTURE FOUNDERS BOOTCAMP 2025 FAQ</h1>
 
+        <div className="max-w-4xl mx-auto space-y-4 mb-12">
+            <p className="text-[#61646b]">
+            The Future Founder Bootcamp 2025 is designed to equip you with essential skills for success in college and beyond.
+            </p>
+
+            <p className="text-[#61646b]">
+              All in one — <span className="font-bold">developing key life</span> skills such as time management, career planning, and independent living; <span className="font-bold">enhancing academic abilities</span> to excel at the college level; 
+              <span className="font-bold">immersing yourself</span> in the real <span className="font-bold">Vietnamese culture and rising field: entrepreneurship.</span>
+            </p>
+            <p className="text-[#61646b]">
+              Future Founders Bootcamp is where the best ‘founders’ find each other and foster life-time connections.
+            </p>
+        </div> 
         <div className="max-w-4xl mx-auto mb-20">
           {faqItems.map((item, index) => (
             <div key={index} className="border-b border-[#d9d9d9]">
@@ -110,8 +123,16 @@ const faqItems = [
   },
   {
     question: "What is the cost of the program?",
-    answer:
-      "The program fee is $2,000 per person. This includes all study materials, resources, program activities (workshops, networking events, field trips, cultural activities), accommodation and local transportation during the second week, and meals during the second event week. Additional costs like visa applications, flight tickets, and personal expenses are not included.",
+    answer: (
+      <>
+        <p className="text-[#61646b]">
+          The program fee is $2,000 per person. This includes all study materials, resources, program activities (workshops, networking events, field trips, cultural activities), accommodation and local transportation during the second week, and meals during the second event week. Additional costs like visa applications, flight tickets, and personal expenses are not included.
+        </p>
+        <p className="text-[#61646b] mt-4">
+          Applicants who are qualified might receive merit-based scholarships. The application process will be reviewed on a rolling basis.
+        </p>
+      </>
+    ),
   },
   {
     question: "What is the program timeline and activities?",

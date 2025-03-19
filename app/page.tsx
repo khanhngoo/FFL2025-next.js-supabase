@@ -18,32 +18,117 @@ import { type CarouselApi } from '@/components/ui/carousel';
 import { useCarouselState } from "@/hooks/useCarouselState"
 
 export default function LandingPage() {
-  const { api, setApi, current, count } = useCarouselState();
+  const { api: heroApi, setApi: setHeroApi, current: heroCurrent, count: heroCount } = useCarouselState();
+  const { api: expertApi, setApi: setExpertApi, current: expertCurrent, count: expertCount } = useCarouselState();
+  const { api: studentApi, setApi: setStudentApi, current: studentCurrent, count: studentCount } = useCarouselState();
+
+  // Auto-sliding effect for Hero Carousel
+  useEffect(() => {
+    if (!heroApi) return;
+    
+    // Set up auto-sliding interval
+    const autoSlideInterval = setInterval(() => {
+      heroApi.scrollNext();
+    }, 5000); // Change slide every 5 seconds
+    
+    // Clean up interval on unmount
+    return () => clearInterval(autoSlideInterval);
+  }, [heroApi]);
+
+  // Auto-sliding effect for Expert Carousel
+  useEffect(() => {
+    if (!expertApi) return;
+    
+    // Set up auto-sliding interval
+    const autoSlideInterval = setInterval(() => {
+      expertApi.scrollNext();
+    }, 7000); // Change slide every 7 seconds
+    
+    // Clean up interval on unmount
+    return () => clearInterval(autoSlideInterval);
+  }, [expertApi]);
+
+  // Auto-sliding effect for Student Carousel
+  useEffect(() => {
+    if (!studentApi) return;
+    
+    // Set up auto-sliding interval
+    const autoSlideInterval = setInterval(() => {
+      studentApi.scrollNext();
+    }, 7000); // Change slide every 7 seconds
+    
+    // Clean up interval on unmount
+    return () => clearInterval(autoSlideInterval);
+  }, [studentApi]);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-screen">
-        <Image
-          src="/placeholder.svg?height=1080&width=1920"
-          alt="Future Founders Bootcamp 2025"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
-          <div className="container mx-auto px-6">
-            <div>
-              <h1 className="text-5xl font-bold text-white mb-4">Future Founders Bootcamp 2025</h1>
-              <p className="text-xl text-white mb-8 italic">Future Founders Bootcamp 2025 is more than a summer camp for future 
-entrepreneurs, many things are available for you to kickstart your dream! 
-</p>
-              <Link href="/apply">
-                <Button className="text-xl bg-[#2529ff] text-white hover:bg-[#2529ff]/90 p-6">Apply Now</Button>
-              </Link>
-            </div>
+      <section className="relative h-screen w-full overflow-hidden">
+        <Carousel 
+          className="absolute inset-0" 
+          opts={{ 
+            loop: true,
+            duration: 30,
+            dragFree: true,
+          }} 
+          setApi={setHeroApi}
+        >
+          <CarouselContent>
+            {[
+              { id: 1, src: '/slide1.svg' },
+              { id: 2, src: '/slide2.svg' },
+              { id: 3, src: '/slide3.svg' },
+              { id: 4, src: '/slide4.svg' },
+              { id: 5, src: '/slide5.svg' }
+            ].map((slide) => (
+              <CarouselItem key={slide.id}>
+                <div className="relative h-screen w-full">
+                  <object
+                    type="image/svg+xml"
+                    data={slide.src}
+                    className="absolute inset-0 w-full h-full"
+                    aria-label={`Slide ${slide.id}`}
+                  >
+                    <img 
+                      src={slide.src} 
+                      alt={`Future Founders Bootcamp 2025 - Slide ${slide.id}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </object>
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
+                    <div className="container mx-auto px-6">
+                      <div className="max-w-3xl">
+                        <h1 className="text-5xl font-bold text-white mb-4">Future Founders Bootcamp 2025</h1>
+                        <p className="text-xl text-white mb-8 italic">Future Founders Bootcamp 2025 is more than a summer camp for future 
+entrepreneurs, many things are available for you to kickstart your dream!</p>
+                        <Link href="/apply">
+                          <Button className="text-xl bg-[#2529ff] text-white hover:bg-[#2529ff]/90 p-6">Apply Now</Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          
+          {/* Hidden navigation buttons in hero section */}
+          <CarouselPrevious className="hidden" />
+          <CarouselNext className="hidden" />
+          
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div
+                key={index}
+                className={`w-2 h-2 rounded-full transition-opacity duration-300 ${
+                  heroCurrent === index ? "bg-white opacity-100" : "bg-white opacity-50 hover:opacity-70"
+                }`}
+                onClick={() => heroApi?.scrollTo(index)}
+              />
+            ))}
           </div>
-        </div>
+        </Carousel>
       </section>
 
       {/* What Is Section */}
@@ -84,7 +169,7 @@ entrepreneurs, many things are available for you to kickstart your dream!
               {benefits.map((benefit, index) => (
                 <div key={index} className="bg-white rounded-lg overflow-hidden flex-none w-[250px] snap-center">
                   <Image
-                    src="/placeholder.svg?height=192&width=250"
+                    src="/placeholder.svg"
                     alt={benefit.title}
                     width={250}
                     height={192}
@@ -110,12 +195,12 @@ entrepreneurs, many things are available for you to kickstart your dream!
             FUTURE FOUNDERS BOOTCAMP?
           </h2>
           <div className="px-6 relative">
-            <Carousel className="w-full" opts={{ loop: true }} setApi={setApi}>
+            <Carousel className="w-full" opts={{ loop: true }} setApi={setExpertApi}>
               <CarouselContent>
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
@@ -124,7 +209,7 @@ entrepreneurs, many things are available for you to kickstart your dream!
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
                         <p className="text-4xl font-bold text-center md:text-left">Ms. Hue/Alex</p>
-                        <p className="text-md text-justify">For years, I’ve watched talented Vietnamese high school students travel across the world in search of experiences to strengthen their college applications and gain real-world skills. But today, Vietnam itself is becoming a hub of innovation, and Future Founder Bootcamp will offer you the same high-caliber opportunities, right at home.
+                        <p className="text-md text-justify">For years, I've watched talented Vietnamese high school students travel across the world in search of experiences to strengthen their college applications and gain real-world skills. But today, Vietnam itself is becoming a hub of innovation, and Future Founder Bootcamp will offer you the same high-caliber opportunities, right at home.
 It is where every magical thing can happen. You will gain core skills for your lifetime to independently grow as a person before learning to become an entrepreneur leader. You can turn your ideas into reality, or give yourself a chance to build a network with experts and all 'future founders' like you.
 The world is looking at Vietnam. Now is your chance to grow, lead, and build your future—right here.
 </p>
@@ -135,7 +220,7 @@ The world is looking at Vietnam. Now is your chance to grow, lead, and build you
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
@@ -156,7 +241,7 @@ You cannot understand what I say if you do not shoot your shot in this amazing c
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
@@ -165,9 +250,9 @@ You cannot understand what I say if you do not shoot your shot in this amazing c
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
                         <p className="text-4xl font-bold text-center md:text-left">Phi Thi Linh Giang, PhD</p>
-                        <p className="text-md text-justify">Entrepreneurship is not just about starting a business; it’s about seeing opportunities where others see obstacles. Through years in this field, I’ve learned that true leadership comes from resilience, adaptability, and the courage to innovate.
-This summer program is the most suitable place for future change-makers—offering real-world insights, hands-on projects, and mentorship from industry experts. You’ll gain the mindset and skills to turn ideas into impact, all while connecting with like-minded peers who challenge and inspire you.
-If you’re ready to think big and build something meaningful, this would be where your journey begins.
+                        <p className="text-md text-justify">Entrepreneurship is not just about starting a business; it's about seeing opportunities where others see obstacles. Through years in this field, I've learned that true leadership comes from resilience, adaptability, and the courage to innovate.
+This summer program is the most suitable place for future change-makers—offering real-world insights, hands-on projects, and mentorship from industry experts. You'll gain the mindset and skills to turn ideas into impact, all while connecting with like-minded peers who challenge and inspire you.
+If you're ready to think big and build something meaningful, this would be where your journey begins.
 </p>
                       </div>
                     </div>
@@ -181,11 +266,11 @@ If you’re ready to think big and build something meaningful, this would be whe
                 <div className="text-white text-2xl">&gt;</div>
               </CarouselNext>
               <div className="bottom-0 left-0 right-0 flex justify-center gap-2 py-4">
-                {Array.from({ length: count }).map((_, index) => (
+                {Array.from({ length: expertCount }).map((_, index) => (
                   <div
                     key={index}
                     className={`w-2 h-2 rounded-full bg-white transition-opacity duration-300 ${
-                      current === index ? "opacity-100" : "opacity-50"
+                      expertCurrent === index ? "opacity-100" : "opacity-50"
                     }`}
                   />
                 ))}
@@ -204,12 +289,12 @@ If you’re ready to think big and build something meaningful, this would be whe
             FUTURE FOUNDERS BOOTCAMP?
           </h2>
           <div className="px-6 relative">
-            <Carousel className="w-full" opts={{ loop: true }} setApi={setApi}>
+            <Carousel className="w-full" opts={{ loop: true }} setApi={setStudentApi}>
               <CarouselContent>
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
@@ -227,7 +312,7 @@ If you’re ready to think big and build something meaningful, this would be whe
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
@@ -245,7 +330,7 @@ If you’re ready to think big and build something meaningful, this would be whe
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
@@ -268,11 +353,11 @@ If you’re ready to think big and build something meaningful, this would be whe
                 <div className="text-white text-2xl">&gt;</div>
               </CarouselNext>
               <div className="bottom-0 left-0 right-0 flex justify-center gap-2 py-4">
-                {Array.from({ length: count }).map((_, index) => (
+                {Array.from({ length: studentCount }).map((_, index) => (
                   <div
                     key={index}
                     className={`w-2 h-2 rounded-full bg-black transition-opacity duration-300 ${
-                      current === index ? "opacity-100" : "opacity-50"
+                      studentCurrent === index ? "opacity-100" : "opacity-50"
                     }`}
                   />
                 ))}
