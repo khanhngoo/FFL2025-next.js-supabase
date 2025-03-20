@@ -76,38 +76,19 @@ export default function LandingPage() {
         >
           <CarouselContent>
             {[
-              { id: 1, src: '/slide1.svg' },
-              { id: 2, src: '/slide2.svg' },
-              { id: 3, src: '/slide3.svg' },
-              { id: 4, src: '/slide4.svg' },
-              { id: 5, src: '/slide5.svg' }
+              { id: 1, src: '/images/hero1.jpg' },
+              { id: 2, src: '/images/hero2.jpg' },
+              { id: 3, src: '/images/hero3.jpg' },
+              { id: 4, src: '/images/hero4.jpg' },
+              { id: 5, src: '/images/hero5.jpg' }
             ].map((slide) => (
               <CarouselItem key={slide.id}>
                 <div className="relative h-screen w-full">
-                  <object
-                    type="image/svg+xml"
-                    data={slide.src}
-                    className="absolute inset-0 w-full h-full"
-                    aria-label={`Slide ${slide.id}`}
-                  >
-                    <img 
-                      src={slide.src} 
-                      alt={`Future Founders Bootcamp 2025 - Slide ${slide.id}`}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </object>
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center">
-                    <div className="container mx-auto px-6">
-                      <div className="max-w-3xl">
-                        <h1 className="text-5xl font-bold text-white mb-4">Future Founders Bootcamp 2025</h1>
-                        <p className="text-xl text-white mb-8 italic">Future Founders Bootcamp 2025 is more than a summer camp for future 
-entrepreneurs, many things are available for you to kickstart your dream!</p>
-                        <Link href="/apply">
-                          <Button className="text-xl bg-[#2529ff] text-white hover:bg-[#2529ff]/90 p-6">Apply Now</Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+                  <img 
+                    src={slide.src} 
+                    alt={`Future Founders Bootcamp 2025 - Slide ${slide.id}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                 </div>
               </CarouselItem>
             ))}
@@ -129,6 +110,20 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
             ))}
           </div>
         </Carousel>
+        
+        {/* Fixed text overlay that doesn't move with the carousel */}
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center z-10">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl font-bold text-white mb-4">Future Founders Bootcamp 2025</h1>
+              <p className="text-xl text-white mb-8 italic">Future Founders Bootcamp 2025 is more than a summer camp for future 
+entrepreneurs, many things are available for you to kickstart your dream!</p>
+              <Link href="/apply">
+                <Button className="text-xl bg-[#2529ff] text-white hover:bg-[#2529ff]/90 p-6">Apply Now</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* What Is Section */}
@@ -156,6 +151,15 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
         </div>
       </section>
 
+      {/* Under Learn More Image */}
+      <section className="w-full">
+        <img 
+          src="/images/under_learn_more.jpg" 
+          alt="Future Founders Learning Experience" 
+          className="w-full h-auto object-cover"
+        />
+      </section>
+
       {/* What Can You Get Section */}
       <section className="bg-[#e0f0ff] py-20">
         <div className="container mx-auto px-6">
@@ -169,7 +173,7 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
               {benefits.map((benefit, index) => (
                 <div key={index} className="bg-white rounded-lg overflow-hidden flex-none w-[250px] snap-center">
                   <Image
-                    src="/placeholder.svg"
+                    src={`/images/benefit${index + 1}.jpg`}
                     alt={benefit.title}
                     width={250}
                     height={192}

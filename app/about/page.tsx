@@ -52,13 +52,14 @@ export default function AboutPage() {
                   stars, earning 5 stars in 9 categories: global engagement, good governance, programme strength, academic
                   development, teaching, employability, facilities, arts, and social impact.
                 </p>
-                <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="VinUniversity Campus"
-                width={400}
-                height={300}
-                className="rounded-lg w-full h-auto"
-              />
+                <div className="relative w-full h-[400px] my-6">
+                  <Image
+                    src="/images/about1.jpg"
+                    alt="VinUniversity Campus"
+                    fill
+                    className="rounded-lg object-cover"
+                  />
+                </div>
                 <p>
                   <span className="font-semibold">Entrepreneurship Lab</span> is a crucial part of the entrepreneurship
                   ecosystem at VinUniversity, where the spirit of innovation thrives, and entrepreneurial minds find their
@@ -191,14 +192,16 @@ export default function AboutPage() {
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-[#21272a] mb-6">About VinUni Entrepreneurship Lab</h2>
 
-          <div className="grid lg:grid-cols-[400px_1fr] gap-8 mb-8">
-            <Image
-              src="/placeholder.svg?height=300&width=400"
-              alt="VinUniversity Campus"
-              width={400}
-              height={300}
-              className="rounded-lg w-full h-auto"
-            />
+          <div className="grid lg:grid-cols-[1fr_2fr] gap-8 mb-8">
+            <div className="relative h-full min-h-[500px]">
+              <Image
+                src="/images/about1.jpg"
+                alt="VinUniversity Campus"
+                fill
+                className="rounded-lg object-cover"
+                sizes="(max-width: 1024px) 100vw, 33vw"
+              />
+            </div>
             <div className="space-y-4 text-[#61646b]">
               <p>
                 <span className="font-semibold">VinUniversity</span> is a private, not-for-profit university established

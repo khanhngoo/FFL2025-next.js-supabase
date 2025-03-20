@@ -10,8 +10,16 @@ export default function InformationPage() {
       <main className="container mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-[#21272a] mb-12">FUTURE FOUNDERS BOOTCAMP 2025</h1>
 
-        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-8 mb-16">
-          <div className="bg-[#2529ff] aspect-video rounded-lg" />
+        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-8 mb-16 items-center">
+          <div className="rounded-lg overflow-hidden">
+            <Image
+              src="/images/info1.jpg"
+              alt="Future Founders Bootcamp"
+              width={600}
+              height={400}
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="text-[#61646b] space-y-4">
             <p>
               Future Founders Bootcamp 2025 is a dynamic summer camp co-hosted by ELab at VinUniversity. 
@@ -26,37 +34,63 @@ export default function InformationPage() {
         </div>
 
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-[#21272a] mb-4">Program Duration</h2>
-          <p className="text-[#61646b] mb-2">The summer camp is expected to be held from July 7th to July 20th, 2025</p>
-          <p className="text-[#61646b] mb-2">Program duration: 2 weeks with</p>
-          <ul className="list-disc list-inside text-[#61646b] ml-4">
-            <li>Week 1 online via Zoom</li>
-            <li>Week 2 onsite at VinUniversity</li>
-          </ul>
+          <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8 items-center">
+            <div>
+              <h2 className="text-2xl font-bold text-[#21272a] mb-4">Program Duration</h2>
+              <p className="text-[#61646b] mb-2">The summer camp is expected to be held from July 7th to July 20th, 2025</p>
+              <p className="text-[#61646b] mb-2">Program duration: 2 weeks with</p>
+              <ul className="list-disc list-inside text-[#61646b] ml-4">
+                <li>Week 1 online via Zoom</li>
+                <li>Week 2 onsite at VinUniversity</li>
+              </ul>
+            </div>
+            <div className="rounded-lg overflow-hidden">
+              <Image
+                src="/images/info2.jpg"
+                alt="Program Duration"
+                width={500}
+                height={350}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </section>
 
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-[#21272a] mb-4">Eligibility</h2>
-          <p className="text-[#61646b] mb-4">
-            The Future Founders Bootcamp 2025 program is open to all high school students, and the program is taught
-            entirely in English.
-          </p>
-          <p className="text-[#61646b] mb-2">In order to take part in the Summer program, students must:</p>
-          <ul className="list-disc list-inside text-[#61646b] ml-4">
-            <li>Show their interest and passion for entrepreneurship</li>
-            <li>Be proficient in the English language.</li>
-          </ul>
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-8 items-center">
+            <div className="rounded-lg overflow-hidden">
+              <Image
+                src="/images/info3.JPG"
+                alt="Eligibility"
+                width={500}
+                height={350}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-[#21272a] mb-4">Eligibility</h2>
+              <p className="text-[#61646b] mb-4">
+                The Future Founders Bootcamp 2025 program is open to all high school students, and the program is taught
+                entirely in English.
+              </p>
+              <p className="text-[#61646b] mb-2">In order to take part in the Summer program, students must:</p>
+              <ul className="list-disc list-inside text-[#61646b] ml-4">
+                <li>Show their interest and passion for entrepreneurship</li>
+                <li>Be proficient in the English language.</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
-        <section className="mb-16 bg-[#e0f0ff] py-10">
-          <div className="container mx-auto px-6">
+        <section className="mb-16 bg-[#e0f0ff] py-10 -mx-6 px-6">
+          <div className="container mx-auto">
             <h2 className="text-3xl font-bold text-center text-[#21272a] mb-12">HIGHLIGHTED ACTIVITIES</h2>
             <div className="relative">
               <div className="flex overflow-x-auto overflow-y-hidden pb-6 gap-6 snap-x snap-mandatory scrollbar-hide">
                 {activities.map((activity, index) => (
                   <div key={index} className="bg-white rounded-lg overflow-hidden flex-none w-[250px] snap-center">
                     <Image
-                      src="/placeholder.svg?height=192&width=250"
+                      src={`/images/activity${index + 1}.jpg`}
                       alt={activity.title}
                       width={250}
                       height={192}
@@ -82,7 +116,7 @@ export default function InformationPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="border rounded-lg p-6">
               <div className="flex items-center gap-2 mb-4">
-                <Check className="text-green-600" />
+                <Check className="text-green-600 w-5 h-5" />
                 <h3 className="font-bold text-[#21272a]">FEE INCLUDES</h3>
               </div>
               <ul className="space-y-2 text-[#61646b]">
@@ -98,7 +132,7 @@ export default function InformationPage() {
 
             <div className="border rounded-lg p-6">
               <div className="flex items-center gap-2 mb-4">
-                <X className="text-red-600" />
+                <X className="text-red-600 w-5 h-5" />
                 <h3 className="font-bold text-[#21272a]">FEE DOES NOT INCLUDE</h3>
               </div>
               <ul className="space-y-2 text-[#61646b]">
