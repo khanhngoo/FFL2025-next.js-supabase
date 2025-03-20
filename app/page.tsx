@@ -5,7 +5,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -13,12 +12,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { useState, useCallback, useEffect } from 'react';
-import { type CarouselApi } from '@/components/ui/carousel';
+import { useEffect } from 'react';
 import { useCarouselState } from "@/hooks/useCarouselState"
 
 export default function LandingPage() {
-  const { api: heroApi, setApi: setHeroApi, current: heroCurrent, count: heroCount } = useCarouselState();
+  const { api: heroApi, setApi: setHeroApi, current: heroCurrent } = useCarouselState();
   const { api: expertApi, setApi: setExpertApi, current: expertCurrent, count: expertCount } = useCarouselState();
   const { api: studentApi, setApi: setStudentApi, current: studentCurrent, count: studentCount } = useCarouselState();
 
@@ -84,10 +82,12 @@ export default function LandingPage() {
             ].map((slide) => (
               <CarouselItem key={slide.id}>
                 <div className="relative h-screen w-full">
-                  <img 
+                  <Image 
                     src={slide.src} 
                     alt={`Future Founders Bootcamp 2025 - Slide ${slide.id}`}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    fill
+                    priority={slide.id === 1}
+                    className="object-cover"
                   />
                 </div>
               </CarouselItem>
@@ -153,11 +153,14 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
 
       {/* Under Learn More Image */}
       <section className="w-full">
-        <img 
-          src="/images/under_learn_more.jpg" 
-          alt="Future Founders Learning Experience" 
-          className="w-full h-auto object-cover"
-        />
+        <div className="relative w-full h-[400px]">
+          <Image 
+            src="/images/under_learn_more.jpg" 
+            alt="Future Founders Learning Experience" 
+            fill
+            className="object-cover"
+          />
+        </div>
       </section>
 
       {/* What Can You Get Section */}

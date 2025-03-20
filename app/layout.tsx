@@ -5,9 +5,9 @@ import "./globals.css"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import type React from "react"
-import Image from "next/image"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,9 +24,11 @@ export default function RootLayout({
         {/* Navigation */}
         <nav className="relative border-b">
           <div className="flex items-center justify-between px-6 py-4 lg:px-8">
-            <img
+            <Image
               src="/placeholder.svg"
               alt="Logo"
+              width={120}
+              height={32}
               className="w-auto h-8 object-contain"
             />
             
