@@ -8,17 +8,39 @@ This repository contains the code for the Future Founders Bootcamp 2025 website,
 
 When deploying to Vercel, you need to set up the following environment variables:
 
+#### Stripe Integration
+
 1. **STRIPE_SECRET_KEY**: Your Stripe secret key for payment processing
    - Get this from your Stripe dashboard
    - Format: `sk_test_...` or `sk_live_...`
 
-2. **NEXT_PUBLIC_BASE_URL**: The base URL of your deployed application
+2. **STRIPE_WEBHOOK_SECRET**: Your Stripe webhook signing secret
+   - Get this when setting up webhooks in your Stripe dashboard
+   - Format: `whsec_...`
+
+3. **NEXT_PUBLIC_BASE_URL**: The base URL of your deployed application
    - For production: `https://your-domain.com`
    - For Vercel Preview: `https://your-project-name-git-branch-name.vercel.app`
 
-3. **MOCK_STRIPE** (optional): Set to `true` to enable mock mode for Stripe integration
+#### Supabase Integration
+
+4. **NEXT_PUBLIC_SUPABASE_URL**: Your Supabase project URL
+   - Found in your Supabase project settings
+   - Format: `https://[project-id].supabase.co`
+
+5. **NEXT_PUBLIC_SUPABASE_ANON_KEY**: Your Supabase anonymous key
+   - Found in your Supabase project settings under API
+   - Format: `eyJ...`
+
+#### Mock Mode Options (for demonstration purposes)
+
+6. **MOCK_STRIPE** (optional): Set to `true` to enable mock mode for Stripe integration
    - This allows deployment without a valid Stripe API key for demonstration purposes
    - The payment flow will use mock data instead of real Stripe sessions
+
+7. **MOCK_SUPABASE** (optional): Set to `true` to enable mock mode for Supabase
+   - This allows deployment without a valid Supabase configuration
+   - Database operations will be logged but not actually performed
 
 ### Setting Environment Variables in Vercel
 
@@ -50,5 +72,18 @@ If you encounter errors during deployment:
 
 1. Check that all required environment variables are set correctly
 2. If you don't have a Stripe account, set `MOCK_STRIPE=true`
-3. Verify that your Stripe API key is valid and has the correct permissions
-4. Check the Vercel deployment logs for specific error messages
+3. If you don't have a Supabase account, set `MOCK_SUPABASE=true`
+4. Verify that your API keys are valid and have the correct permissions
+5. Check the Vercel deployment logs for specific error messages
+
+## Mock Mode Deployment
+
+For a quick demo deployment without requiring any external services:
+
+```
+MOCK_STRIPE=true
+MOCK_SUPABASE=true
+NEXT_PUBLIC_BASE_URL=https://your-vercel-url.vercel.app
+```
+
+This configuration will allow the application to run with simulated payment processing and database operations.
