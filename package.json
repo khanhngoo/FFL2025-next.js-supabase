@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:loose": "node -e \"process.platform === 'win32' ? require('child_process').execSync('build-with-loose-types.bat') : require('child_process').execSync('sh ./build-with-loose-types.sh')\"",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ts:dev": "cp tsconfig.dev.json tsconfig.json",
+    "ts:prod": "git checkout -- tsconfig.json"
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.1.6",

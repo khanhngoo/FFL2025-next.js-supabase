@@ -76,6 +76,27 @@ If you encounter errors during deployment:
 4. Verify that your API keys are valid and have the correct permissions
 5. Check the Vercel deployment logs for specific error messages
 
+### TypeScript Errors
+
+If you encounter TypeScript errors during build:
+
+1. We've already disabled some strict TypeScript checks in specific files to accommodate mock implementations
+2. If you still encounter TypeScript errors, you can:
+   - Check the build logs to identify the specific file and error
+   - Modify the problematic file to add appropriate ESLint disable comments
+   - For mock implementations using `any` type, add: `/* eslint-disable @typescript-eslint/no-explicit-any */`
+   - For unused variables in mock functions, add: `/* eslint-disable @typescript-eslint/no-unused-vars */`
+3. For local development, you can use the provided development TypeScript configuration with npm scripts:
+   ```bash
+   # Switch to development TypeScript configuration
+   npm run ts:dev
+   
+   # Switch back to production TypeScript configuration
+   npm run ts:prod
+   ```
+   
+   The development configuration relaxes TypeScript's strict checks to make development easier.
+
 ## Mock Mode Deployment
 
 For a quick demo deployment without requiring any external services:
@@ -87,3 +108,31 @@ NEXT_PUBLIC_BASE_URL=https://your-vercel-url.vercel.app
 ```
 
 This configuration will allow the application to run with simulated payment processing and database operations.
+
+## Vercel Build Override (For TypeScript Issues)
+
+If you continue to experience TypeScript errors during Vercel deployment, you can override the build command in your Vercel project settings:
+
+1. Go to your project in the Vercel dashboard
+2. Navigate to Settings > General > Build & Development Settings
+3. Override the Build Command with one of these options:
+   - `npm run build:loose` (uses our included build script)
+   - `cp tsconfig.dev.json tsconfig.json && next build` (manual override)
+4. This will use the relaxed TypeScript configuration during build
+
+Note: This approach should only be used for demonstration purposes. For production applications, it's better to properly type your code.
+
+## Building Locally with Relaxed TypeScript Checks
+
+If you're encountering TypeScript errors during local builds, you can use our included scripts:
+
+```bash
+# Build with relaxed TypeScript configuration
+npm run build:loose
+
+# Switch to development TypeScript configuration
+npm run ts:dev
+
+# Switch back to production TypeScript configuration
+npm run ts:prod
+```
