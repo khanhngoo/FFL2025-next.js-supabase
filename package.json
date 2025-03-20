@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:clean": "node -e \"require('fs').rmSync('.next', {recursive: true, force: true})\" && next build",
     "build:loose": "node -e \"process.platform === 'win32' ? require('child_process').execSync('build-with-loose-types.bat') : require('child_process').execSync('sh ./build-with-loose-types.sh')\"",
     "start": "next start",
     "lint": "next lint",

@@ -91,6 +91,7 @@ export default function LandingPage() {
                     className="object-cover"
                     sizes="100vw"
                     placeholderType="hero"
+                    quality={85}
                   />
                 </div>
               </CarouselItem>
@@ -157,11 +158,12 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
       {/* Under Learn More Image */}
       <section className="w-full h-screen">
         <div className="relative w-full h-full">
-          <Image 
+          <OptimizedImage 
             src="/images/under_learn_more.jpg" 
             alt="Future Founders Learning Experience" 
             fill
             className="object-cover"
+            quality={85}
           />
         </div>
       </section>

@@ -9,7 +9,6 @@ const nextConfig = {
     minimumCacheTTL: 60,
     disableStaticImages: false,
     domains: [],
-    quality: 85,
   },
   experimental: {
     largePageDataBytes: 512 * 1000, // Increase the page data size limit

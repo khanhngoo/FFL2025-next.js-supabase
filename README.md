@@ -137,6 +137,22 @@ npm run ts:dev
 npm run ts:prod
 ```
 
+## Handling Next.js Configuration Errors
+
+If you encounter errors related to Next.js configuration during build:
+
+1. Use our clean build script to ensure cache is cleared:
+   ```bash
+   npm run build:clean
+   ```
+
+2. If you see errors about unrecognized configuration options (like `quality` in `next.config.mjs`), this might be due to differences between Next.js versions. We've moved some configuration settings to component-level props for better compatibility.
+
+3. For Vercel deployment, you can modify the build command in project settings:
+   ```
+   npm run build:clean
+   ```
+
 ## Image Handling in Production
 
 This application uses Next.js Image optimization, which can sometimes cause issues with large images in production environments. To address this, we've implemented:
@@ -150,6 +166,7 @@ If you encounter image loading issues in production:
 1. Make sure image filenames use lowercase extensions (e.g., `.jpg` not `.JPG`)
 2. For large hero images, consider compressing them to under 1MB and using consistent dimensions
 3. Use the `OptimizedImage` component for critical images that must display correctly
-4. For development, you can set `unoptimized={true}` on problematic images
+4. Set the `quality` prop directly on the `OptimizedImage` component (e.g., `quality={85}`)
+5. For development, you can set `unoptimized={true}` on problematic images
 
-You can also adjust the image optimization settings in `next.config.mjs` if needed.
+**Note**: We've moved image quality settings from global Next.js config to component-level props due to compatibility issues with some Next.js versions. The `OptimizedImage` component now accepts a `quality` prop that defaults to 85.
