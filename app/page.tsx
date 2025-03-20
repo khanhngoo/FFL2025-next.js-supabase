@@ -152,8 +152,8 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
       </section>
 
       {/* Under Learn More Image */}
-      <section className="w-full">
-        <div className="relative w-full h-[400px]">
+      <section className="w-full h-screen">
+        <div className="relative w-full h-full">
           <Image 
             src="/images/under_learn_more.jpg" 
             alt="Future Founders Learning Experience" 
