@@ -136,3 +136,20 @@ npm run ts:dev
 # Switch back to production TypeScript configuration
 npm run ts:prod
 ```
+
+## Image Handling in Production
+
+This application uses Next.js Image optimization, which can sometimes cause issues with large images in production environments. To address this, we've implemented:
+
+1. **OptimizedImage Component**: A wrapper around the Next.js Image component that handles loading failures with smart fallbacks
+2. **Placeholder Images**: SVG placeholders that display while images are loading or if they fail to load
+3. **Unoptimized Mode**: For particularly large images, we can bypass Next.js optimization when needed
+
+If you encounter image loading issues in production:
+
+1. Make sure image filenames use lowercase extensions (e.g., `.jpg` not `.JPG`)
+2. For large hero images, consider compressing them to under 1MB and using consistent dimensions
+3. Use the `OptimizedImage` component for critical images that must display correctly
+4. For development, you can set `unoptimized={true}` on problematic images
+
+You can also adjust the image optimization settings in `next.config.mjs` if needed.

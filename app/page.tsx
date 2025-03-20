@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel"
 import { useEffect } from 'react';
 import { useCarouselState } from "@/hooks/useCarouselState"
+import OptimizedImage from '@/components/OptimizedImage'
 
 export default function LandingPage() {
   const { api: heroApi, setApi: setHeroApi, current: heroCurrent } = useCarouselState();
@@ -82,12 +83,14 @@ export default function LandingPage() {
             ].map((slide) => (
               <CarouselItem key={slide.id}>
                 <div className="relative h-screen w-full">
-                  <Image 
+                  <OptimizedImage 
                     src={slide.src} 
                     alt={`Future Founders Bootcamp 2025 - Slide ${slide.id}`}
                     fill
                     priority={slide.id === 1}
                     className="object-cover"
+                    sizes="100vw"
+                    placeholderType="hero"
                   />
                 </div>
               </CarouselItem>
