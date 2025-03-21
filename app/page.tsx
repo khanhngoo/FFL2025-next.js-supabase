@@ -76,10 +76,10 @@ export default function LandingPage() {
           <CarouselContent>
             {[
               { id: 1, src: '/images/hero1.jpg' },
-              { id: 2, src: '/images/hero2.jpg' },
+              { id: 2, src: '/images/hero2.JPG' },
               { id: 3, src: '/images/hero3.jpg' },
-              { id: 4, src: '/images/hero4.jpg' },
-              { id: 5, src: '/images/hero5.jpg' }
+              { id: 4, src: '/images/hero4.JPG' },
+              { id: 5, src: '/images/hero5.JPG' }
             ].map((slide) => (
               <CarouselItem key={slide.id}>
                 <div className="relative h-screen w-full">
@@ -212,11 +212,11 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg"
+                      src="/placeholders/expert-placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
-                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                      className="w-48 h-48 md:w-[300px] md:h-[300px] border-2 border-white shadow-lg"
                     />
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
@@ -232,11 +232,11 @@ The world is looking at Vietnam. Now is your chance to grow, lead, and build you
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg"
+                      src="/placeholders/expert-placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
-                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                      className="w-48 h-48 md:w-[300px] md:h-[300px] border-2 border-white shadow-lg"
                     />
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
@@ -253,11 +253,11 @@ You cannot understand what I say if you do not shoot your shot in this amazing c
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg"
+                      src="/placeholders/expert-placeholder.svg"
                       alt="Expert"
                       width={300}
                       height={300}
-                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                      className="w-48 h-48 md:w-[300px] md:h-[300px] border-2 border-white shadow-lg"
                     />
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
@@ -306,11 +306,11 @@ If you're ready to think big and build something meaningful, this would be where
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg"
-                      alt="Expert"
+                      src="/placeholders/student-placeholder.svg"
+                      alt="Student"
                       width={300}
                       height={300}
-                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                      className="w-48 h-48 md:w-[300px] md:h-[300px] border border-gray-300 shadow-lg"
                     />
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
@@ -324,11 +324,11 @@ If you're ready to think big and build something meaningful, this would be where
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg"
-                      alt="Expert"
+                      src="/placeholders/student-placeholder.svg"
+                      alt="Student"
                       width={300}
                       height={300}
-                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                      className="w-48 h-48 md:w-[300px] md:h-[300px] border border-gray-300 shadow-lg"
                     />
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
@@ -342,11 +342,11 @@ If you're ready to think big and build something meaningful, this would be where
                 <CarouselItem>
                   <div className="flex items-center gap-8 flex-col md:flex-row px-14">
                     <Image
-                      src="/placeholder.svg"
-                      alt="Expert"
+                      src="/placeholders/student-placeholder.svg"
+                      alt="Student"
                       width={300}
                       height={300}
-                      className="rounded-full w-48 h-48 md:w-[300px] md:h-[300px]"
+                      className="w-48 h-48 md:w-[300px] md:h-[300px] border border-gray-300 shadow-lg"
                     />
                     <div className="flex-1">
                       <div className="flex flex-col gap-6">
