@@ -19,7 +19,8 @@ import OptimizedImage from '@/components/OptimizedImage'
 export default function LandingPage() {
   const { api: heroApi, setApi: setHeroApi, current: heroCurrent } = useCarouselState();
   const { api: expertApi, setApi: setExpertApi, current: expertCurrent, count: expertCount } = useCarouselState();
-  const { api: studentApi, setApi: setStudentApi, current: studentCurrent, count: studentCount } = useCarouselState();
+  // Remove unused student carousel state since that section is commented out
+  // const { api: studentApi, setApi: setStudentApi, current: studentCurrent, count: studentCount } = useCarouselState();
 
   // Auto-sliding effect for Hero Carousel
   useEffect(() => {
@@ -47,18 +48,19 @@ export default function LandingPage() {
     return () => clearInterval(autoSlideInterval);
   }, [expertApi]);
 
+  // Remove unused student carousel effect since that section is commented out
   // Auto-sliding effect for Student Carousel
-  useEffect(() => {
-    if (!studentApi) return;
+  // useEffect(() => {
+  //   if (!studentApi) return;
     
-    // Set up auto-sliding interval
-    const autoSlideInterval = setInterval(() => {
-      studentApi.scrollNext();
-    }, 7000); // Change slide every 7 seconds
+  //   // Set up auto-sliding interval
+  //   const autoSlideInterval = setInterval(() => {
+  //     studentApi.scrollNext();
+  //   }, 7000); // Change slide every 7 seconds
     
-    // Clean up interval on unmount
-    return () => clearInterval(autoSlideInterval);
-  }, [studentApi]);
+  //   // Clean up interval on unmount
+  //   return () => clearInterval(autoSlideInterval);
+  // }, [studentApi]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -211,7 +213,7 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
               <CarouselContent>
                 <CarouselItem>
                   <div className="relative px-14 pt-[350px] md:pt-0 md:pl-[400px] md:min-h-[500px]">
-                    <div className="absolute left-1/2 top-0 md:left-14 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 md:translate-x-0 w-64 h-64 md:w-[320px] md:h-[320px]">
+                    <div className="absolute left-1/2 top-0 md:left-14 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 md:translate-x-0 w-64 h-64 md:w-[320px] md:h-[320px]">
                       <Image
                         src="/images/Marc-Kramer.png"
                         alt="Marc Kramer"
