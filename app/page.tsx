@@ -210,63 +210,91 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
             <Carousel className="w-full" opts={{ loop: true }} setApi={setExpertApi}>
               <CarouselContent>
                 <CarouselItem>
-                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
-                    <Image
-                      src="/placeholders/expert-placeholder.svg"
-                      alt="Expert"
-                      width={300}
-                      height={300}
-                      className="w-48 h-48 md:w-[300px] md:h-[300px] border-2 border-white shadow-lg"
-                    />
-                    <div className="flex-1">
-                      <div className="flex flex-col gap-6">
-                        <p className="text-4xl font-bold text-center md:text-left">Ms. Hue/Alex</p>
-                        <p className="text-md text-justify">For years, I've watched talented Vietnamese high school students travel across the world in search of experiences to strengthen their college applications and gain real-world skills. But today, Vietnam itself is becoming a hub of innovation, and Future Founder Bootcamp will offer you the same high-caliber opportunities, right at home.
-It is where every magical thing can happen. You will gain core skills for your lifetime to independently grow as a person before learning to become an entrepreneur leader. You can turn your ideas into reality, or give yourself a chance to build a network with experts and all 'future founders' like you.
-The world is looking at Vietnam. Now is your chance to grow, lead, and build your future—right here.
-</p>
+                  <div className="relative px-14 pt-[350px] md:pt-0 md:pl-[400px] md:min-h-[500px]">
+                    <div className="absolute left-1/2 top-0 md:left-14 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 md:translate-x-0 w-64 h-64 md:w-[320px] md:h-[320px]">
+                      <Image
+                        src="/images/Marc-Kramer.png"
+                        alt="Marc Kramer"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 md:ml-10">
+                      <h3 className="text-4xl font-bold mb-6 text-center md:text-left">Marc Kramer, MA</h3>
+                      
+                      <div className="mb-6">
+                        <h4 className="text-xl font-semibold mb-2">EXPERIENCE:</h4>
+                        <ul className="list-disc pl-6 space-y-1">
+                          <li>VinUniversity College of Business and Management Faculty, Bachelor of Business Administration</li>
+                          <li>Former Faculty Member at Wharton School of Business, University of Pennsylvania</li>
+                          <li>Serial entrepreneur who has started over 28 companies and raised over $3.2 billion</li>
+                          <li>Wrote six books—book "Small Business Turnaround" won the Executive Book Summaries Top 30 Business Books</li>
+                        </ul>
                       </div>
+                      
+                      <p className="text-md">
+                      Entrepreneurship is not just about starting a business; it's about seeing opportunities where others see obstacles. Through years in this field, I've learned that true leadership comes from resilience, adaptability, and the courage to innovate.
+This summer program is the most suitable place for future change-makers—offering real-world insights, hands-on projects, and mentorship from industry experts. You'll gain the mindset and skills to turn ideas into impact, all while connecting with like-minded peers who challenge and inspire you.
+If you're ready to think big and build something meaningful, this would be where your journey begins.
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
                 <CarouselItem>
-                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
-                    <Image
-                      src="/placeholders/expert-placeholder.svg"
-                      alt="Expert"
-                      width={300}
-                      height={300}
-                      className="w-48 h-48 md:w-[300px] md:h-[300px] border-2 border-white shadow-lg"
-                    />
-                    <div className="flex-1">
-                      <div className="flex flex-col gap-6">
-                        <p className="text-4xl font-bold text-center md:text-left">Kim Young Un, PhD</p>
-                        <p className="text-md text-justify">Having a chance to lead and inspire lots of prospective students at VinUniversity gives me the best experience ever. 
+                  <div className="relative px-14 pt-[350px] md:pt-0 md:pl-[400px] md:min-h-[500px]">
+                    <div className="absolute left-1/2 top-0 md:left-14 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 md:translate-x-0 w-64 h-64 md:w-[320px] md:h-[320px]">
+                      <Image
+                        src="/images/Kim-Young-Un.png"
+                        alt="Kim Young Un"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 md:ml-10">
+                      <h3 className="text-4xl font-bold mb-6 text-center md:text-left">Kim Young Un, PhD</h3>
+                      
+                      <div className="mb-6">
+                        <h4 className="text-xl font-semibold mb-2">EXPERIENCE:</h4>
+                        <ul className="list-disc pl-6 space-y-1">
+                          <li>VinUniversity College of Business and Management Assistant Professor, Faculty of Management & Entrepreneurship</li>
+                          <li>Strategic Management & Entrepreneurship PhD degree, University of North Carolina at Chapel Hill</li>
+                        </ul>
+                      </div>
+                      
+                      <p className="text-md">
+                      Having a chance to lead and inspire lots of prospective students at VinUniversity gives me the best experience ever. 
 It has shown me that this country is not just a place of growth, but a place of opportunity. Future Founders Bootcamp is the place for students to gain hands-on experience, tackle real-world challenges, and develop the problem-solving mindset that top universities seek.
 College applications can be a stressful journey, but it does not have to be. Enjoy your learning at Future Founders Bootcamp to not only academically grow, but also create meaningful experience for your youth. 
 You cannot understand what I say if you do not shoot your shot in this amazing country. So, why not?
-</p>
-                      </div>
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
                 <CarouselItem>
-                  <div className="flex items-center gap-8 flex-col md:flex-row px-14">
-                    <Image
-                      src="/placeholders/expert-placeholder.svg"
-                      alt="Expert"
-                      width={300}
-                      height={300}
-                      className="w-48 h-48 md:w-[300px] md:h-[300px] border-2 border-white shadow-lg"
-                    />
-                    <div className="flex-1">
-                      <div className="flex flex-col gap-6">
-                        <p className="text-4xl font-bold text-center md:text-left">Phi Thi Linh Giang, PhD</p>
-                        <p className="text-md text-justify">Entrepreneurship is not just about starting a business; it's about seeing opportunities where others see obstacles. Through years in this field, I've learned that true leadership comes from resilience, adaptability, and the courage to innovate.
+                  <div className="relative px-14 pt-[350px] md:pt-0 md:pl-[400px] md:min-h-[500px]">
+                    <div className="absolute left-1/2 top-0 md:left-14 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 md:translate-x-0 w-64 h-64 md:w-[320px] md:h-[320px]">
+                      <Image
+                        src="/images/Phi-Thi-Linh-Giang.png"
+                        alt="Phi Thi Linh Giang"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 md:ml-10">
+                      <h3 className="text-4xl font-bold mb-6 text-center md:text-left">Phi Thi Linh Giang, PhD</h3>
+                      
+                      <div className="mb-6">
+                        <h4 className="text-xl font-semibold mb-2">EXPERIENCE:</h4>
+                        <ul className="list-disc pl-6 space-y-1">
+                          <li>VinUniversity College of Business and Management Assistant Professor, Faculty of Tourism & Entrepreneurship</li>
+                        </ul>
+                      </div>
+                      
+                      <p className="text-md">
+                      Entrepreneurship is not just about starting a business; it's about seeing opportunities where others see obstacles. Through years in this field, I've learned that true leadership comes from resilience, adaptability, and the courage to innovate.
 This summer program is the most suitable place for future change-makers—offering real-world insights, hands-on projects, and mentorship from industry experts. You'll gain the mindset and skills to turn ideas into impact, all while connecting with like-minded peers who challenge and inspire you.
 If you're ready to think big and build something meaningful, this would be where your journey begins.
-</p>
-                      </div>
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -293,7 +321,7 @@ If you're ready to think big and build something meaningful, this would be where
       </section>
 
       {/* Student Talk Section */}
-      <section className="text-[#21272a] py-20 pb-5">
+      {/* <section className="text-[#21272a] py-20 pb-5">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold mb-12 text-center">
             WHAT COLLEGE STUDENTS TALK ABOUT
@@ -313,11 +341,20 @@ If you're ready to think big and build something meaningful, this would be where
                       className="w-48 h-48 md:w-[300px] md:h-[300px] border border-gray-300 shadow-lg"
                     />
                     <div className="flex-1">
-                      <div className="flex flex-col gap-6">
-                        <p className="text-4xl font-bold text-center md:text-left">STUDENT NAME</p>
-                        <p className="text-md text-justify">lorem ipsum
-</p>
+                      <h3 className="text-4xl font-bold mb-6">Nguyen Van A</h3>
+                      
+                      <div className="mb-6">
+                        <h4 className="text-xl font-semibold mb-2">EXPERIENCE:</h4>
+                        <ul className="list-disc pl-6 space-y-1">
+                          <li>Computer Science Student, Class of 2025</li>
+                          <li>Future Founders Bootcamp Participant, 2023</li>
+                          <li>Co-founder of Student Tech Initiative</li>
+                        </ul>
                       </div>
+                      
+                      <p className="text-md">
+                        The Future Founders Bootcamp was a transformative experience that shaped my entrepreneurial journey. The mentorship and hands-on projects helped me develop critical thinking skills I use every day. I particularly valued the networking opportunities with industry professionals.
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -331,11 +368,20 @@ If you're ready to think big and build something meaningful, this would be where
                       className="w-48 h-48 md:w-[300px] md:h-[300px] border border-gray-300 shadow-lg"
                     />
                     <div className="flex-1">
-                      <div className="flex flex-col gap-6">
-                        <p className="text-4xl font-bold text-center md:text-left">STUDENT NAME</p>
-                        <p className="text-md text-justify">lorem ipsum
-</p>
+                      <h3 className="text-4xl font-bold mb-6">Tran Thi B</h3>
+                      
+                      <div className="mb-6">
+                        <h4 className="text-xl font-semibold mb-2">EXPERIENCE:</h4>
+                        <ul className="list-disc pl-6 space-y-1">
+                          <li>Business Management Student, Class of 2024</li>
+                          <li>Future Founders Bootcamp Participant, 2022</li>
+                          <li>Student Ambassador for Entrepreneurship Programs</li>
+                        </ul>
                       </div>
+                      
+                      <p className="text-md">
+                        Participating in the Future Founders Bootcamp gave me invaluable insights into what it takes to build a successful startup. The program's focus on real-world applications and problem-solving equipped me with practical skills that complement my theoretical knowledge.
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -349,11 +395,20 @@ If you're ready to think big and build something meaningful, this would be where
                       className="w-48 h-48 md:w-[300px] md:h-[300px] border border-gray-300 shadow-lg"
                     />
                     <div className="flex-1">
-                      <div className="flex flex-col gap-6">
-                        <p className="text-4xl font-bold text-center md:text-left">STUDENT NAME</p>
-                        <p className="text-md text-justify">lorem ipsum
-</p>
+                      <h3 className="text-4xl font-bold mb-6">Le Hoang C</h3>
+                      
+                      <div className="mb-6">
+                        <h4 className="text-xl font-semibold mb-2">EXPERIENCE:</h4>
+                        <ul className="list-disc pl-6 space-y-1">
+                          <li>Engineering Student, Class of 2026</li>
+                          <li>Future Founders Bootcamp Participant, 2023</li>
+                          <li>Winner of Campus Innovation Challenge</li>
+                        </ul>
                       </div>
+                      
+                      <p className="text-md">
+                        As someone with a technical background, the bootcamp helped me understand the business side of innovation. I learned how to validate my ideas, communicate effectively with diverse stakeholders, and navigate the challenges of bringing a product to market.
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -377,7 +432,7 @@ If you're ready to think big and build something meaningful, this would be where
             </Carousel>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Newsletter Section */}
       <section className="py-20">
