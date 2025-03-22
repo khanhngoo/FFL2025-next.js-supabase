@@ -23,14 +23,17 @@ export default function RootLayout({
       <body className={inter.className}>
         {/* Navigation */}
         <nav className="relative border-b">
-          <div className="flex items-center justify-between px-6 py-4 lg:px-8">
-            <Image
-              src="/placeholder.svg"
-              alt="Logo"
-              width={120}
-              height={32}
-              className="w-auto h-8 object-contain"
-            />
+          <div className="flex items-center justify-between px-6 py-2 lg:px-8">
+            <Link href="/">
+              <Image
+                src="/images/logo2.png"
+                alt="Future Founders Bootcamp Logo" 
+                width={240}
+                height={64}
+                className="w-auto h-12 object-contain"
+                priority
+              />
+            </Link>
             
             {/* Mobile menu button */}
             <button 

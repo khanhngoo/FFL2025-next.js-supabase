@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { Suspense } from 'react'
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
+import Image from "next/image"
 
 function PaymentSuccessContent() {
   const searchParams = useSearchParams()
@@ -83,17 +83,23 @@ export default function PaymentSuccessPage() {
       {/* Footer */}
       <footer className="bg-[#2529ff] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-[1fr_2fr_2fr_2fr] gap-8">
+          <div className="grid grid-cols-4 gap-8">
             <div>
-              <div className="w-24 h-8 bg-[#d9d9d9]" />
+              <Image
+                src="/images/logo_old.png"
+                alt="Future Founders Bootcamp Logo"
+                width={250}
+                height={100}
+                className="object-contain brightness-0 invert"
+              />
             </div>
             <div>
               <h3 className="font-bold mb-2">About</h3>
               <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
-                <li>Future Founders Bootcamp 2025</li>
-                <li>AISEC</li>
-                <li>VinUniversity Entrepreneurship Lab</li>
+                <li><Link href="https://www.facebook.com/profile.php?id=61574448660870" className="hover:opacity-80">Future Founders Bootcamp 2025</Link></li>
+                <li><Link href="https://www.facebook.com/AIESECinVietnam" className="hover:opacity-80">AISEC in Vietnam</Link></li>
+                <li><Link href="https://www.facebook.com/elab.vinuni/" className="hover:opacity-80">VinUniversity Entrepreneurship Lab</Link></li>
               </ul>
             </div>
             <div>
@@ -111,14 +117,17 @@ export default function PaymentSuccessPage() {
               <h3 className="font-bold mb-2">Contact</h3>
               <div className="w-12 h-0.5 bg-white mb-4"></div>
               <div className="flex gap-4 flex-wrap">
-                <Link href="#" className="hover:opacity-80 flex items-center gap-2">
-                  <FacebookRoundedIcon />
+                <Link href="https://www.facebook.com/profile.php?id=61574448660870" className="hover:opacity-80 flex items-center gap-2">
+                  {/* Facebook icon SVG */}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 16.84 5.44 20.87 10 21.8V15H8V12H10V9.5C10 7.57 11.57 6 13.5 6H16V9H14C13.45 9 13 9.45 13 10V12H16V15H13V21.95C18.05 21.45 22 17.19 22 12Z" />
+                  </svg>
                   <span>Facebook</span>
                 </Link>
               </div>
             </div>
           </div>
-          <div className="text-center text-sm mt-8">CompanyName © 2024. All rights reserved.</div>
+          <div className="text-center text-sm mt-8">FutureFoundersBootcamp © 2025. All rights reserved.</div>
         </div>
       </footer>
     </div>
