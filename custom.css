@@ -49,3 +49,39 @@ svg {
 .embla__button:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+/* Add infinite scroller animation */
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.infinite-scroll-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.infinite-scroll-container {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+/* When animation pauses on hover */
+.infinite-scroll-container:hover {
+  animation-play-state: paused;
+}
+
+/* Override default carousel styles for infinite scroll */
+.infinite-scroll-wrapper .embla__container {
+  display: flex;
+  animation: scroll 30s linear infinite;
+}
+
+/* Override default carousel next/prev buttons */
+.infinite-scroll-wrapper .embla__button {
+  display: none;
+}

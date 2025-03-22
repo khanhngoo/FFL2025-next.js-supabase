@@ -15,6 +15,7 @@ import {
 import { useEffect } from 'react';
 import { useCarouselState } from "@/hooks/useCarouselState"
 import OptimizedImage from '@/components/OptimizedImage'
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 
 export default function LandingPage() {
   const { api: heroApi, setApi: setHeroApi, current: heroCurrent } = useCarouselState();
@@ -61,6 +62,36 @@ export default function LandingPage() {
   //   // Clean up interval on unmount
   //   return () => clearInterval(autoSlideInterval);
   // }, [studentApi]);
+
+  // Auto-sliding effect for Benefits Carousel - replaced with CSS animation
+  /*
+  useEffect(() => {
+    const benefitsInterval = setInterval(() => {
+      const container = document.querySelector('.bg-\\[\\#e0f0ff\\] .embla__container');
+      if (container) {
+        const scrollAmount = 1; // Small increment for smooth scrolling
+        const currentScroll = container.scrollLeft;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        
+        if (currentScroll >= maxScroll) {
+          // Reset to beginning with smooth animation
+          container.scrollTo({
+            left: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          // Increment by small amount for smooth animation
+          container.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 16); // ~60fps for smooth animation
+    
+    return () => clearInterval(benefitsInterval);
+  }, []);
+  */
 
   return (
     <div className="min-h-screen bg-white">
@@ -178,20 +209,41 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
             <br />
             FUTURE FOUNDERS BOOTCAMP 2025?
           </h2>
-          <div className="relative">
-            <div className="flex overflow-x-auto overflow-y-hidden pb-6 gap-6 snap-x snap-mandatory scrollbar-hide">
+          <div className="infinite-scroll-wrapper">
+            <div className="infinite-scroll-container">
+              {/* Original items */}
               {benefits.map((benefit, index) => (
-                <div key={index} className="bg-white rounded-lg overflow-hidden flex-none w-[250px] snap-center">
-                  <Image
-                    src={`/images/benefit${index + 1}.jpg`}
-                    alt={benefit.title}
-                    width={250}
-                    height={192}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <h3 className="font-bold text-[#21272a] mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-[#61646b]">{benefit.description}</p>
+                <div key={index} className="flex-none w-[250px] mx-2">
+                  <div className="bg-white rounded-lg overflow-hidden h-full">
+                    <Image
+                      src={`/images/benefit${index + 1}.jpg`}
+                      alt={benefit.title}
+                      width={250}
+                      height={192}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <h3 className="font-bold text-[#21272a] mb-2">{benefit.title}</h3>
+                      <p className="text-sm text-[#61646b]">{benefit.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicated items for seamless looping */}
+              {benefits.map((benefit, index) => (
+                <div key={`dup-${index}`} className="flex-none w-[250px] mx-2">
+                  <div className="bg-white rounded-lg overflow-hidden h-full">
+                    <Image
+                      src={`/images/benefit${index + 1}.jpg`}
+                      alt={benefit.title}
+                      width={250}
+                      height={192}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <h3 className="font-bold text-[#21272a] mb-2">{benefit.title}</h3>
+                      <p className="text-sm text-[#61646b]">{benefit.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -450,41 +502,41 @@ If you're ready to think big and build something meaningful, this would be where
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12">
+      <footer className="bg-[#2529ff] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-4 gap-8">
-            <div className="w-24 h-8 bg-[#d9d9d9]" />
+          <div className="grid grid-cols-[1fr_2fr_2fr_2fr] gap-8">
             <div>
-              <h3 className="font-bold mb-4">Column 1</h3>
+              <div className="w-24 h-8 bg-[#d9d9d9]" />
+            </div>
+            <div>
+              <h3 className="font-bold mb-2">About</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
+                <li>Future Founders Bootcamp 2025</li>
+                <li>AISEC</li>
+                <li>VinUniversity Entrepreneurship Lab</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4">Column 2</h3>
+              <h3 className="font-bold mb-2">Apply</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
+                <li><Link href="/apply" className="hover:opacity-80">Apply Now</Link></li>
+                <li><Link href="/" className="hover:opacity-80">Home</Link></li>
+                <li><Link href="/info" className="hover:opacity-80">Information</Link></li>
+                <li><Link href="/faq" className="hover:opacity-80">FAQ</Link></li>
+                <li><Link href="/about" className="hover:opacity-80">About Us</Link></li>
               </ul>
             </div>
-            <div className="flex gap-4 justify-end">
-              <Link href="#" className="hover:opacity-80">
-                f
-              </Link>
-              <Link href="#" className="hover:opacity-80">
-                t
-              </Link>
-              <Link href="#" className="hover:opacity-80">
-                ig
-              </Link>
-              <Link href="#" className="hover:opacity-80">
-                in
-              </Link>
+            <div>
+              <h3 className="font-bold mb-2">Contact</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
+              <div className="flex gap-4 flex-wrap">
+                <Link href="#" className="hover:opacity-80 flex items-center gap-2">
+                  <FacebookRoundedIcon />
+                  <span>Facebook</span>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="text-center text-sm mt-8">CompanyName © 2024. All rights reserved.</div>

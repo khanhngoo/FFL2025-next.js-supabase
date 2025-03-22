@@ -1,8 +1,11 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Check, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import "../../custom.css"
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
 
 export default function InformationPage() {
   return (
@@ -81,14 +84,18 @@ export default function InformationPage() {
             </div>
           </div>
         </section>
+      </main>
 
-        <section className="mb-16 bg-[#e0f0ff] py-10 -mx-6 px-6">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center text-[#21272a] mb-12">HIGHLIGHTED ACTIVITIES</h2>
-            <div className="relative">
-              <div className="flex overflow-x-auto overflow-y-hidden pb-6 gap-6 snap-x snap-mandatory scrollbar-hide">
-                {activities.map((activity, index) => (
-                  <div key={index} className="bg-white rounded-lg overflow-hidden flex-none w-[250px] snap-center">
+      {/* Highlighted Activities - Full width section */}
+      <section className="bg-[#e0f0ff] py-12 mb-16">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-[#21272a] mb-12">HIGHLIGHTED ACTIVITIES</h2>
+          <div className="infinite-scroll-wrapper">
+            <div className="infinite-scroll-container">
+              {/* Original items */}
+              {activities.map((activity, index) => (
+                <div key={index} className="flex-none w-[250px] mx-2">
+                  <div className="bg-white rounded-lg overflow-hidden h-full">
                     <Image
                       src={`/images/activity${index + 1}.jpg`}
                       alt={activity.title}
@@ -101,12 +108,32 @@ export default function InformationPage() {
                       <p className="text-sm text-[#61646b]">{activity.description}</p>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+              {/* Duplicated items for seamless looping */}
+              {activities.map((activity, index) => (
+                <div key={`dup-${index}`} className="flex-none w-[250px] mx-2">
+                  <div className="bg-white rounded-lg overflow-hidden h-full">
+                    <Image
+                      src={`/images/activity${index + 1}.jpg`}
+                      alt={activity.title}
+                      width={250}
+                      height={192}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <h3 className="font-bold text-[#21272a] mb-2">{activity.title}</h3>
+                      <p className="text-sm text-[#61646b]">{activity.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
+      <main className="container mx-auto px-6">
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-[#21272a] mb-4">Program Fee</h2>
           <p className="text-[#61646b] mb-8">The cost of the program is $2,000 per person.
@@ -158,27 +185,41 @@ export default function InformationPage() {
         </section>
       </main>
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12">
+      <footer className="bg-[#2529ff] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-4 gap-8">
-            <div className="w-24 h-8 bg-[#d9d9d9]" />
+          <div className="grid grid-cols-[1fr_2fr_2fr_2fr] gap-8">
             <div>
-              <h3 className="font-bold mb-4">Column 1</h3>
+              <div className="w-24 h-8 bg-[#d9d9d9]" />
+            </div>
+            <div>
+              <h3 className="font-bold mb-2">About</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
+                <li>Future Founders Bootcamp 2025</li>
+                <li>AISEC</li>
+                <li>VinUniversity Entrepreneurship Lab</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4">Column 2</h3>
+              <h3 className="font-bold mb-2">Apply</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
+                <li><Link href="/apply" className="hover:opacity-80">Apply Now</Link></li>
+                <li><Link href="/" className="hover:opacity-80">Home</Link></li>
+                <li><Link href="/info" className="hover:opacity-80">Information</Link></li>
+                <li><Link href="/faq" className="hover:opacity-80">FAQ</Link></li>
+                <li><Link href="/about" className="hover:opacity-80">About Us</Link></li>
               </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-2">Contact</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
+              <div className="flex gap-4 flex-wrap">
+                <Link href="#" className="hover:opacity-80 flex items-center gap-2">
+                  <FacebookRoundedIcon />
+                  <span>Facebook</span>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="text-center text-sm mt-8">CompanyName © 2024. All rights reserved.</div>

@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import Image from "next/image"
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
 
 export default function FAQPage() {
   const [openQuestion, setOpenQuestion] = useState<number | null>(null)
@@ -24,7 +26,7 @@ export default function FAQPage() {
               <span className="font-bold">immersing yourself</span> in the real <span className="font-bold">Vietnamese culture and rising field: entrepreneurship.</span>
             </p>
             <p className="text-[#61646b]">
-              Future Founders Bootcamp is where the best ‘founders’ find each other and foster life-time connections.
+              Future Founders Bootcamp is where the best 'founders' find each other and foster life-time connections.
             </p>
         </div> 
         <div className="max-w-4xl mx-auto mb-20">
@@ -61,41 +63,41 @@ export default function FAQPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12">
+      <footer className="bg-[#2529ff] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-4 gap-8">
-            <div className="w-24 h-8 bg-[#d9d9d9]" />
+          <div className="grid grid-cols-[1fr_2fr_2fr_2fr] gap-8">
             <div>
-              <h3 className="font-bold mb-4">Column 1</h3>
+              <div className="w-24 h-8 bg-[#d9d9d9]" />
+            </div>
+            <div>
+              <h3 className="font-bold mb-2">About</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
+                <li>Future Founders Bootcamp 2025</li>
+                <li>AISEC</li>
+                <li>VinUniversity Entrepreneurship Lab</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4">Column 2</h3>
+              <h3 className="font-bold mb-2">Apply</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
-                <li>Option 1</li>
+                <li><Link href="/apply" className="hover:opacity-80">Apply Now</Link></li>
+                <li><Link href="/" className="hover:opacity-80">Home</Link></li>
+                <li><Link href="/info" className="hover:opacity-80">Information</Link></li>
+                <li><Link href="/faq" className="hover:opacity-80">FAQ</Link></li>
+                <li><Link href="/about" className="hover:opacity-80">About Us</Link></li>
               </ul>
             </div>
-            <div className="flex gap-4 justify-end">
-              <Link href="#" className="hover:opacity-80">
-                f
-              </Link>
-              <Link href="#" className="hover:opacity-80">
-                t
-              </Link>
-              <Link href="#" className="hover:opacity-80">
-                ig
-              </Link>
-              <Link href="#" className="hover:opacity-80">
-                in
-              </Link>
+            <div>
+              <h3 className="font-bold mb-2">Contact</h3>
+              <div className="w-12 h-0.5 bg-white mb-4"></div>
+              <div className="flex gap-4 flex-wrap">
+                <Link href="#" className="hover:opacity-80 flex items-center gap-2">
+                  <FacebookRoundedIcon />
+                  <span>Facebook</span>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="text-center text-sm mt-8">CompanyName © 2024. All rights reserved.</div>
