@@ -28,6 +28,7 @@ interface FormData {
   citizenship: string;
   school: string;
   grade: string;
+  group_name: string;
   referral_source: string;
   referral_source_other?: string;
   activities: string;
@@ -68,6 +69,7 @@ export default function RegistrationForm() {
       citizenship: '',
       school: '',
       grade: '',
+      group_name: '',
       referral_source: '',
       referral_source_other: '',
       activities: '',
@@ -93,6 +95,7 @@ export default function RegistrationForm() {
       citizenship: '',
       school: '',
       grade: '',
+      group_name: '',
       referral_source: '',
       referral_source_other: '',
       activities: '',
@@ -396,6 +399,18 @@ export default function RegistrationForm() {
                   </Select>
                 </div>
               </div>
+              <div className="space-y-2">
+                  <label className="text-sm text-[#61646b]">
+                    If you want to register within a group, please provide me your group name 
+                  </label>
+                  <Input 
+                    name="group_name"
+                    value={formData.group_name}
+                    onChange={handleInputChange}
+                    placeholder="Your group name"
+                    className="border-[#d9d9d9]"
+                  />
+                </div>
               <div className="space-y-2 h-full">
                 <label className="text-sm text-[#61646b]">
                   How do you know about FFL 2025? <span className="text-red-500">*</span>
@@ -652,12 +667,22 @@ export default function RegistrationForm() {
               <div className="space-y-6">
                 <h2 className="text-xl font-medium">Question 2:</h2>
                 <p className="text-[#61646b]">Please prepare your CV highlighting previous achievements.</p>
+                <ul className="list-disc list-inside text-[#61646b] space-y-2">
+                  <li>Personal details such as name, email, school, and grade.</li>
+                  <li>Highlights achievements, extracurricular activities, and relevant experiences.</li>
+                  <li>Academic achievements: GPA from Grade 9 to Summer 2025 and awards at your schools.</li>
+                  <li>Parental/guardian consent form.</li>
+                  <li>English proficiency proof: Applicants must submit one of the following if English is not their native language.</li>
+                  <li>TOEFL iBT or IELTS (minimum IELTS 6.0 or equivalent B2 level).</li>
+                  <li>Exemption: Students studying full-time in an international school with English as the primary language of instruction do not need to submit IELTS/TOEFL.</li>
+                </ul>
 
                 <div className="space-y-4">
                   <h3 className="font-medium">Submission Guidelines:</h3>
                   <ul className="list-disc list-inside text-[#61646b] space-y-2">
                     <li>You can find Harvard CV Templates to prepare your personal achievements.</li>
                     <li>Please upload your CV to Google Drive or any file hosting service.</li>
+                    <li>CVs should follow professional templates and be uploaded in PDF or DOCX format.</li>
                     <li>Provide the URL to access your CV.</li>
                   </ul>
                 </div>
