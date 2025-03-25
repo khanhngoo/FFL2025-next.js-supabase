@@ -34,6 +34,7 @@ interface FormData {
   activities: string;
   video_url: string;
   cv_url: string;
+  ielts_url: string;
   payment_status: string;
   application_status: string;
 }
@@ -75,6 +76,7 @@ export default function RegistrationForm() {
       activities: '',
       video_url: '',
       cv_url: '',
+      ielts_url: '',
       payment_status: 'pending',
       application_status: 'submitted'
       }
@@ -101,6 +103,7 @@ export default function RegistrationForm() {
       activities: '',
       video_url: '',
       cv_url: '',
+      ielts_url: '',
       payment_status: 'pending',
       application_status: 'submitted'
     }
@@ -696,6 +699,32 @@ export default function RegistrationForm() {
                     placeholder="Your CV URL"
                     className="border-[#d9d9d9]"
                   />
+                </div>
+
+                <div className="space-y-6">
+                  <h2 className="text-xl font-medium">Question 3:</h2>
+                  <p className="text-[#61646b]">Please prepare your IELTS Official Report.</p>
+                
+
+                  <div className="space-y-4">
+                    <h3 className="font-medium">Submission Guidelines:</h3>
+                    <ul className="list-disc list-inside text-[#61646b] space-y-2">
+                      <li>Please upload your CV to Google Drive or any file hosting service.</li>
+                      <li>CVs should follow professional templates and be uploaded in PDF or DOCX format.</li>
+                      <li>Provide the URL to access your CV.</li>
+                    </ul>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm text-[#61646b]">IELTS Report URL</label>
+                    <Input 
+                      name="ielts_url"
+                      value={formData.ielts_url}
+                      onChange={handleInputChange}
+                      placeholder="Your IELTS Report URL"
+                      className="border-[#d9d9d9]"
+                    />
+                  </div>
                 </div>
               </div>
 
