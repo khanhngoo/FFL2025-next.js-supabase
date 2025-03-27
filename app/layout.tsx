@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {/* Navigation */}
-        <nav className="relative border-b">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b shadow-sm">
           <div className="flex items-center justify-between px-6 py-2 lg:px-8">
             <Link href="/">
               <Image
@@ -69,7 +69,7 @@ export default function RootLayout({
 
           {/* Mobile navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden border-t">
+            <div className="lg:hidden border-t bg-white">
               <div className="flex flex-col space-y-4 px-6 py-4">
                 <Link 
                   href="/" 
@@ -111,7 +111,10 @@ export default function RootLayout({
             </div>
           )}
         </nav>
-        {children}
+        {/* Add padding to the top to prevent content from being hidden under the fixed navbar */}
+        <div className="pt-16">
+          {children}
+        </div>
       </body>
     </html>
   )

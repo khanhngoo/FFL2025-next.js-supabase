@@ -186,8 +186,8 @@ export default function InformationPage() {
       {/* Footer */}
       <footer className="bg-[#2529ff] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-4 gap-8">
-            <div>
+          <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="hidden lg:block">
               <Image
                 src="/images/logo_old.png"
                 alt="Future Founders Bootcamp Logo"
@@ -201,7 +201,7 @@ export default function InformationPage() {
               <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
                 <li><Link href="https://www.facebook.com/profile.php?id=61574448660870" className="hover:opacity-80">Future Founders Bootcamp 2025</Link></li>
-                <li><Link href="https://www.facebook.com/AIESECinVietnam" className="hover:opacity-80">AISEC in Vietnam</Link></li>
+                <li><Link href="https://www.facebook.com/AIESECinVietnam" className="hover:opacity-80">AIESEC in Vietnam</Link></li>
                 <li><Link href="https://www.facebook.com/elab.vinuni/" className="hover:opacity-80">VinUniversity Entrepreneurship Lab</Link></li>
               </ul>
             </div>

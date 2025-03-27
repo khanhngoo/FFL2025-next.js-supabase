@@ -107,12 +107,12 @@ export default function AboutPage() {
                     />
 
                     <h3 className="text-xl font-bold text-[#2529ff]">We create value-driven leaders</h3>
-                    <p className="text-[#61646b] text-justify">
+                    <p ="text-[#61646b] text-justify">
                       Youth Engagement is a series of projects for High School students, aiming to engage young students
                       with AIESEC as an organization and the concept of Leadership Development.
                     </p>
 
-                    <p className="text-[#61646b] text-justify">
+                    <p ="text-[#61646b] text-justify">
                       By focusing on education initiatives inspired by the Sustainable Development Goals (SDGs), Youth
                       Engagement fosters Self-leadership, helping students navigate the uncertainties and challenges of
                       adolescence with confidence. Through meaningful connections with like-minded peers and professionals,
@@ -158,8 +158,8 @@ export default function AboutPage() {
               {/* Footer */}
         <footer className="bg-[#2529ff] text-white py-12 pb-5">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-4 gap-8">
-              <div>
+            <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
+              <div className="hidden lg:block">
                 <Image
                   src="/images/logo_old.png"
                   alt="Future Founders Bootcamp Logo"
@@ -173,7 +173,7 @@ export default function AboutPage() {
                 <div className="w-12 h-0.5 bg-white mb-4"></div>
                 <ul className="space-y-2">
                   <li><Link href="https://www.facebook.com/profile.php?id=61574448660870" className="hover:opacity-80">Future Founders Bootcamp 2025</Link></li>
-                  <li><Link href="https://www.facebook.com/AIESECinVietnam" className="hover:opacity-80">AISEC in Vietnam</Link></li>
+                  <li><Link href="https://www.facebook.com/AIESECinVietnam" className="hover:opacity-80">AIESEC in Vietnam</Link></li>
                   <li><Link href="https://www.facebook.com/elab.vinuni/" className="hover:opacity-80">VinUniversity Entrepreneurship Lab</Link></li>
                 </ul>
               </div>
@@ -337,14 +337,14 @@ export default function AboutPage() {
       {/* Footer */}
       <footer className="bg-[#2529ff] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-4 gap-8">
-            <div>
+          <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="hidden lg:block">
               <Image
                 src="/images/logo_old.png"
                 alt="Future Founders Bootcamp Logo"
                 width={250}
                 height={100}
-                className="object-contain"
+                className="object-contain brightness-0 invert"
               />
             </div>
             <div>
@@ -352,7 +352,7 @@ export default function AboutPage() {
               <div className="w-12 h-0.5 bg-white mb-4"></div>
               <ul className="space-y-2">
                 <li><Link href="https://www.facebook.com/profile.php?id=61574448660870" className="hover:opacity-80">Future Founders Bootcamp 2025</Link></li>
-                <li><Link href="https://www.facebook.com/AIESECinVietnam" className="hover:opacity-80">AISEC in Vietnam</Link></li>
+                <li><Link href="https://www.facebook.com/AIESECinVietnam" className="hover:opacity-80">AIESEC in Vietnam</Link></li>
                 <li><Link href="https://www.facebook.com/elab.vinuni/" className="hover:opacity-80">VinUniversity Entrepreneurship Lab</Link></li>
               </ul>
             </div>
