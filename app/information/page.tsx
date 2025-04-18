@@ -175,7 +175,7 @@ export default function InformationPage() {
           <h2 className="text-3xl font-bold text-[#21272a] mb-8">HEY SUCCESSFUL ENTREPRENEUR, WHAT ARE YOU WAITING FOR?</h2>
           <div className="flex justify-center gap-4">
             <Link href="/apply">
-                <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90">Apply Now</Button>
+                <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90">Apply Now</Button>
             </Link>
             <Link href="/about">
               <Button variant="outline" className="border-[#d9d9d9]">About Us</Button>
@@ -184,7 +184,7 @@ export default function InformationPage() {
         </section>
       </main>
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12 pb-5">
+      <footer className="bg-[#2151a1] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
             <div className="hidden lg:block">

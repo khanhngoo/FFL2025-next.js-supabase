@@ -206,7 +206,7 @@ export default function RegistrationForm() {
             <div className="flex-1 flex items-center">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  step >= 1 ? "bg-[#2529ff] text-white" : "border-2 border-[#d9d9d9] text-[#61646b]"
+                  step >= 1 ? "bg-[#2151a1] text-white" : "border-2 border-[#d9d9d9] text-[#61646b]"
                 }`}
               >
                 1
@@ -214,7 +214,7 @@ export default function RegistrationForm() {
               <div className="h-[2px] flex-1 mx-2 bg-[#d9d9d9]" />
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  step >= 2 ? "bg-[#2529ff] text-white" : "border-2 border-[#d9d9d9] text-[#61646b]"
+                  step >= 2 ? "bg-[#2151a1] text-white" : "border-2 border-[#d9d9d9] text-[#61646b]"
                 }`}
               >
                 2
@@ -222,7 +222,7 @@ export default function RegistrationForm() {
               <div className="h-[2px] flex-1 mx-2 bg-[#d9d9d9]" />
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  step >= 3 ? "bg-[#2529ff] text-white" : "border-2 border-[#d9d9d9] text-[#61646b]"
+                  step >= 3 ? "bg-[#2151a1] text-white" : "border-2 border-[#d9d9d9] text-[#61646b]"
                 }`}
               >
                 3
@@ -230,9 +230,9 @@ export default function RegistrationForm() {
             </div>
           </div>
           <div className="flex justify-between text-sm text-[#61646b]">
-            <span className={step >= 1 ? "text-[#2529ff]" : ""}>Personal Information</span>
-            <span className={step >= 2 ? "text-[#2529ff]" : ""}>Personal Introduction</span>
-            <span className={step >= 3 ? "text-[#2529ff]" : ""}>Finalize & Check Out</span>
+            <span className={step >= 1 ? "text-[#2151a1]" : ""}>Personal Information</span>
+            <span className={step >= 2 ? "text-[#2151a1]" : ""}>Personal Introduction</span>
+            <span className={step >= 3 ? "text-[#2151a1]" : ""}>Finalize & Check Out</span>
           </div>
         </div>
 
@@ -602,7 +602,7 @@ export default function RegistrationForm() {
                   Back
                 </Button>
                 <Button
-                  className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-12"
+                  className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90 px-12"
                   onClick={handleContinue}
                   type="button"
                 >
@@ -738,7 +738,7 @@ export default function RegistrationForm() {
                   Back
                 </Button>
                 <Button
-                  className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-12"
+                  className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90 px-12"
                   onClick={handleSubmit}
                   disabled={isSubmitting}
                   type="button"
@@ -752,7 +752,7 @@ export default function RegistrationForm() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12 pb-5">
+      <footer className="bg-[#2151a1] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
             <div className="hidden lg:block">

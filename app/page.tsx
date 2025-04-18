@@ -155,7 +155,7 @@ export default function LandingPage() {
               <p className="text-xl text-white mb-8 italic">Future Founders Bootcamp 2025 is more than a summer camp for future 
 entrepreneurs, many things are available for you to kickstart your dream!</p>
               <Link href="/apply">
-                <Button className="text-xl bg-[#2529ff] text-white hover:bg-[#2529ff]/90 p-6">Apply Now</Button>
+                <Button className="text-xl bg-[#2151a1] text-white hover:bg-[#2151a1]/90 p-6">Apply Now</Button>
               </Link>
             </div>
           </div>
@@ -176,7 +176,7 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/apply">
-              <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90">Apply Now</Button>
+              <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90">Apply Now</Button>
             </Link>
             <Link href="/information">
               <Button variant="outline" className="border-[#d9d9d9]">
@@ -252,7 +252,7 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
       </section>
 
       {/* Expert Talk Section */}
-      <section className="bg-[#2529ff] py-20 pb-5 text-white">
+      <section className="bg-[#2151a1] py-20 pb-5 text-white">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold mb-12 text-center">
             WHAT EXPERTS TALK ABOUT
@@ -501,7 +501,7 @@ If you're ready to think big and build something meaningful, this would be where
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12 pb-5">
+      <footer className="bg-[#2151a1] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
             <div className="hidden lg:block">

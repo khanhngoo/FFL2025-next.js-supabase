@@ -60,7 +60,7 @@ function PaymentSuccessContent() {
         <label className="block text-sm text-[#61646b]">Receive latest news from us</label>
         <div className="flex gap-4">
           <Input placeholder="example@email.com" className="border-[#d9d9d9]" />
-          <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 whitespace-nowrap">Sign Me Up!</Button>
+          <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90 whitespace-nowrap">Sign Me Up!</Button>
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@ export default function PaymentSuccessPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12 pb-5">
+      <footer className="bg-[#2151a1] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
             <div className="hidden lg:block">
@@ -90,7 +90,7 @@ export default function PaymentSuccessPage() {
                 alt="Future Founders Bootcamp Logo"
                 width={250}
                 height={100}
-                className="object-contain brightness-0 invert"
+                className="object-contain"
               />
             </div>
             <div>

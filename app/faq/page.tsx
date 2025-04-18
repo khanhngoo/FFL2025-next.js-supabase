@@ -32,7 +32,7 @@ export default function FAQPage() {
           {faqItems.map((item, index) => (
             <div key={index} className="border-b border-[#d9d9d9]">
               <button
-                className="w-full py-6 flex items-center justify-between text-left hover:text-[#2529ff] transition-colors"
+                className="w-full py-6 flex items-center justify-between text-left hover:text-[#2151a1] transition-colors"
                 onClick={() => setOpenQuestion(openQuestion === index ? null : index)}
               >
                 <span className="text-xl font-medium">{item.question}</span>
@@ -54,15 +54,15 @@ export default function FAQPage() {
               <Input placeholder="Your email" className="max-w-md border-[#d9d9d9]" />
               <Input placeholder="Type your question here" className="max-w-md border-[#d9d9d9]" />
             </div>
-            <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-8">Send</Button>
+            <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90 px-8">Send</Button>
           </div>
-          <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-8">Contact us through fanpage</Button>
+          <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90 px-8">Contact us through fanpage</Button>
 
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12 pb-5">
+      <footer className="bg-[#2151a1] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
             <div className="hidden lg:block">

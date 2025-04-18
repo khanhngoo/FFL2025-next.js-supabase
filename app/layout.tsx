@@ -26,7 +26,7 @@ export default function RootLayout({
           <div className="flex items-center justify-between px-6 py-2 lg:px-8">
             <Link href="/">
               <Image
-                src="/images/logo2.png"
+                src="/images/logo.png"
                 alt="Future Founders Bootcamp Logo" 
                 width={240}
                 height={64}
@@ -62,7 +62,7 @@ export default function RootLayout({
                 About Us
               </Link>
               <Link href="/apply">
-                <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 rounded-full">Apply Now</Button>
+                <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90 rounded-full">Apply Now</Button>
               </Link>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function RootLayout({
                   href="/apply" 
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Button className="w-full bg-[#2529ff] text-white hover:bg-[#2529ff]/90 rounded-full">
+                  <Button className="w-full bg-[#2151a1] text-white hover:bg-[#2151a1]/90 rounded-full">
                     Apply Now
                   </Button>
                 </Link>

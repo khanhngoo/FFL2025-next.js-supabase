@@ -49,7 +49,7 @@ export default function ApplyPage() {
 
             <div className="flex gap-4">
               <Link href="/apply/form">
-                <Button className="bg-[#2529ff] text-white hover:bg-[#2529ff]/90 px-8">Continue</Button>
+                <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90 px-8">Continue</Button>
               </Link>
               <Link href="/information">
                 <Button variant="outline" className="border-[#d9d9d9] px-8">
@@ -73,7 +73,7 @@ export default function ApplyPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-[#2529ff] text-white py-12 pb-5">
+      <footer className="bg-[#2151a1] text-white py-12 pb-5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-8">
             <div className="hidden lg:block">
