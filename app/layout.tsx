@@ -26,7 +26,7 @@ export default function RootLayout({
           <div className="flex items-center justify-between px-6 py-2 lg:px-8">
             <Link href="/">
               <Image
-                src="/images/logo.png"
+                src="/images/logo_old.png"
                 alt="Future Founders Bootcamp Logo" 
                 width={240}
                 height={64}
