@@ -25,13 +25,13 @@ export default function InformationPage() {
           </div>
           <div className="text-[#61646b] space-y-4">
             <p>
-              Future Founders Bootcamp 2025 is a dynamic summer camp co-hosted by ELab at VinUniversity. 
-              The program offers an immersive experience designed for aspiring young entrepreneurs to develop
-              essential entrepreneurial skills, foster creativity, and build impactful ideas. Participants will engage
-              in hands-on workshops, mentorship sessions, and team challenges, culminating in a pitch competition to
-              showcase their innovative solutions. This camp is the perfect opportunity to connect with like-minded
-              peers, industry experts, and global networks, empowering participants to become the changemakers of
-              tomorrow.
+              With the theme of <span className="font-bold text-[#2151a1]">Dash for Greener Impact</span>, Future Founders Bootcamp 2025 
+              is a proudly Vietnamese, exclusive, and highly selective pre-college program 
+              designed for high school students worldwide. A collaboration between VinUni 
+              Entrepreneurship Lab and AIESEC in Vietnam, the program offers a dynamic blend 
+              of immersive, enjoyable "college student" life with cross-cultural connections 
+              while empowering students with rigorous, hands-on challenges through a college-level 
+              leadership and entrepreneurship course.
             </p>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function InformationPage() {
         </section>
 
         <section className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-[#21272a] mb-8">HEY SUCCESSFUL ENTREPRENEUR, WHAT ARE YOU WAITING FOR?</h2>
+          <h2 className="text-3xl font-bold text-[#21272a] mb-8">DEAR FUTURE ENTREPRENEURS, LET'S START SHAPING THE FUTURE TODAY!</h2>
           <div className="flex justify-center gap-4">
             <Link href="/apply">
                 <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90">Apply Now</Button>

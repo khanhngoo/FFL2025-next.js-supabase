@@ -3,12 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Check } from "lucide-react"
-import Link from "next/link"
 import { useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { Suspense } from 'react'
-import Image from "next/image"
 import { Footer } from "@/components/Footer"
 
 function PaymentSuccessContent() {

@@ -4,12 +4,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import Link from "next/link"
 import { useState, useEffect } from "react"
 import { supabase } from "@/lib/supabase"
 import { useRouter } from 'next/navigation'
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio"
-import Image from "next/image"
 import { Footer } from "@/components/Footer"
 
 // First, define an interface for the form data structure
@@ -403,18 +401,7 @@ export default function RegistrationForm() {
                   </Select>
                 </div>
               </div>
-              <div className="space-y-2">
-                  <label className="text-sm text-[#61646b]">
-                    If you want to register within a group, please provide me your group name 
-                  </label>
-                  <Input 
-                    name="group_name"
-                    value={formData.group_name}
-                    onChange={handleInputChange}
-                    placeholder="Your group name"
-                    className="border-[#d9d9d9]"
-                  />
-                </div>
+              
               <div className="space-y-2 h-full">
                 <label className="text-sm text-[#61646b]">
                   How do you know about FFL 2025? <span className="text-red-500">*</span>

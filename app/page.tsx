@@ -153,8 +153,8 @@ export default function LandingPage() {
           <div className="container mx-auto px-6">
             <div className="max-w-3xl">
               <h1 className="text-5xl font-bold text-white mb-4">Future Founders Bootcamp 2025</h1>
-              <p className="text-xl text-white mb-8 italic">Future Founders Bootcamp 2025 is more than a summer camp for future 
-entrepreneurs, many things are available for you to kickstart your dream!</p>
+              <h2 className="text-3xl font-semibold text-white mb-4">Close the gap within, lift greener Vietnam beyond</h2>
+              <p className="text-xl text-white mb-8">The real Vietnamese launchpad into start-up — where ambitious youth rise, ideas take flight, and a new generation in Vietnam and beyond begins shaping the future of world.</p>
               <Link href="/apply">
                 <Button className="text-xl bg-[#2151a1] text-white hover:bg-[#2151a1]/90 p-6">Apply Now</Button>
               </Link>
@@ -168,12 +168,13 @@ entrepreneurs, many things are available for you to kickstart your dream!</p>
         <div className="container mx-auto px-6">
           <h2 className="text-center text-4xl font-bold text-[#21272a] mb-8">WHAT IS FUTURE FOUNDERS BOOTCAMP 2025?</h2>
           <p className="text-[#61646b] mb-8 mx-auto text-center">
-            Future Founders Bootcamp 2025 is an intensive summer camp hosted by ELab at VinUniversity. 
-            Designed for ambitious young entrepreneurs, the program is a unique chance to
-            network with like-minded peers, gain real-world insights, and kickstart your journey as a future
-            changemaker. We are here to experience hands-on workshops, mentorship and culminate in a pitch competition
-            to showcase your innovative solutions. We overcome dynamic team challenges, develop entrepreneurial skills,
-            foster creativity, and build realistic ideas which impact the world.
+           With the theme of <span className="font-bold text-[#2151a1]">Dash for Greener Impact</span>, Future Founders Bootcamp 2025 
+           is a proudly Vietnamese, exclusive, and highly selective pre-college program 
+           designed for high school students worldwide. A collaboration between VinUni 
+           Entrepreneurship Lab and AIESEC in Vietnam, the program offers a dynamic blend 
+           of immersive, enjoyable "college student" life with cross-cultural connections 
+           while empowering students with rigorous, hands-on challenges through a college-level 
+           leadership and entrepreneurship course.
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/apply">

@@ -86,10 +86,10 @@ export default function AboutPage() {
           </section>
   
           {/* About AIESEC Section */}
-          {/* <section className="mb-16">
+          <section className="mb-16">
             <h2 className="text-2xl font-bold text-[#21272a] mb-6">About AIESEC</h2>
               <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-bold text-[#2529ff]">By Youth, For Youth
+                    <h3 className="text-xl font-bold text-[#2151a1]">By Youth, For Youth
                     <br />We are a "Youth Leadership" movement </h3>
                     <p className="text-[#61646b] text-justify">
                       AIESEC in Vietnam (FHN Branch) is a branch of the world's largest youth-led organization, dedicated to
@@ -107,13 +107,13 @@ export default function AboutPage() {
                     className="rounded-lg w-full h-auto"
                     />
 
-                    <h3 className="text-xl font-bold text-[#2529ff]">We create value-driven leaders</h3>
-                    <p ="text-[#61646b] text-justify">
+                    <h3 className="text-xl font-bold text-[#2151a1]">We create value-driven leaders</h3>
+                    <p className="text-[#61646b] text-justify">
                       Youth Engagement is a series of projects for High School students, aiming to engage young students
                       with AIESEC as an organization and the concept of Leadership Development.
                     </p>
 
-                    <p ="text-[#61646b] text-justify">
+                    <p className="text-[#61646b] text-justify">
                       By focusing on education initiatives inspired by the Sustainable Development Goals (SDGs), Youth
                       Engagement fosters Self-leadership, helping students navigate the uncertainties and challenges of
                       adolescence with confidence. Through meaningful connections with like-minded peers and professionals,
@@ -124,7 +124,7 @@ export default function AboutPage() {
                     <p className="text-[#61646b]">Find out more at: {" "}
                       <Link
                         href="https://www.aiesec.vn/"
-                        className="text-[#2529ff] hover:underline"
+                        className="text-[#2151a1] hover:underline"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -135,10 +135,7 @@ export default function AboutPage() {
 
                   </div>
               
-  
-                
-              
-          </section> */}
+          </section>
   
           {/* Call to Action */}
           <section className="text-center">
@@ -216,12 +213,12 @@ export default function AboutPage() {
         </section>
 
         {/* About AIESEC Section mobile */}
-        {/*<section className="mb-16">
+        <section className="mb-16">
           <h2 className="text-2xl font-bold text-[#21272a] mb-6">About AIESEC</h2>
             <div className="grid lg:grid-cols-[1fr_400px] gap-2 h-auto">
               <div className="flex flex-col gap-4">
                 <div className="flex">
-                  <h3 className="text-xl font-bold text-[#2529ff] w-[300px]">By Youth, For Youth
+                  <h3 className="text-xl font-bold text-[#2151a1] w-[300px]">By Youth, For Youth
                   <br />We are a "Youth Leadership" movement </h3>
                   <p className="text-[#61646b] flex-1 text-justify">
                     AIESEC in Vietnam (FHN Branch) is a branch of the world's largest youth-led organization, dedicated to
@@ -233,7 +230,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="flex">
-                  <h3 className="text-xl font-bold text-[#2529ff] w-[300px]">We create value-driven leaders</h3>
+                  <h3 className="text-xl font-bold text-[#2151a1] w-[300px]">We create value-driven leaders</h3>
                   <p className="text-[#61646b] flex-1 text-justify">
                     Youth Engagement is a series of projects for High School students, aiming to engage young students
                     with AIESEC as an organization and the concept of Leadership Development.
@@ -243,7 +240,7 @@ export default function AboutPage() {
                 <div className="font-medium flex items-end">
                   <Link
                     href="https://www.aiesec.vn/"
-                    className="text-[#2529ff] hover:underline w-[300px]"
+                    className="text-[#2151a1] hover:underline w-[300px] font-bold"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -269,11 +266,11 @@ export default function AboutPage() {
               className="rounded-lg w-full h-auto"
             />
             </div>
-        </section> */}
+        </section>
 
         {/* Call to Action */}
         <section className="text-center">
-          <h2 className="text-3xl font-bold text-[#21272a] mb-8">HEY SUCCESSFUL ENTREPRENEUR, WHAT ARE YOU WAITING FOR?</h2>
+          <h2 className="text-3xl font-bold text-[#21272a] mb-8">DEAR FUTURE ENTREPRENEURS, LET'S START SHAPING THE FUTURE TODAY!</h2>
           <div className="flex justify-center gap-4">
             <Link href="/apply">
               <Button className="bg-[#2151a1] text-white hover:bg-[#2151a1]/90">Apply Now</Button>
